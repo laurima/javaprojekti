@@ -13,7 +13,7 @@ public class Ram {
     private float usageram;
     
     
-    // Paluttaa kokonais ram määrän megatavuina
+    // Paluttaa kokonais ram määrän gigatavuina
     public float getTotalRam() {
         JavaSysMon monitor = new JavaSysMon();
 
@@ -24,7 +24,7 @@ public class Ram {
         return this.totalram;
     }
     
-    // Palauttaa vapaana olevan ramin määrän megatavuina
+    // Palauttaa vapaana olevan ramin määrän gigatavuina
     public float getFreeRam() {
         JavaSysMon monitor = new JavaSysMon();
         
@@ -34,7 +34,7 @@ public class Ram {
         return this.freeram;
     }
     
-    // Palauttaa käytössä olevan ramin määrän megatavuina
+    // Palauttaa käytössä olevan ramin määrän gigatavuina
     public float getUsageRam() {
         Ram ram = new Ram();
         this.usageram = ram.getTotalRam() - ram.getFreeRam();

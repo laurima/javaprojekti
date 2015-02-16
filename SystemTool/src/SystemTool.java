@@ -12,6 +12,11 @@ public class SystemTool {
 
     public static void main(String args[]) {
         
+        // Testin ajaminen
+        Testi testi = new Testi();
+        testi.testi();
+        
+        
     }
-    
+
 }

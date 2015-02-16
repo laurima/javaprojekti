@@ -9,7 +9,7 @@ import com.jezhumble.javasysmon.JavaSysMon;
 
 public class Testi {
     
-    public static void main(String args[]) {
+    public static void testi() {
       
        
        System.out.println("----------- OS INFO ----------"); 
@@ -36,8 +36,7 @@ public class Testi {
         System.out.println("Number of cores: " + cpu.getNumberOfCores());
         System.out.println("CPU frequency: " + cpu.getFrequency() + " MHz");
 
-        CpuTimes times = new CpuTimes(monitor.cpuTimes().getUserMillis(), monitor.cpuTimes().getSystemMillis(), monitor.cpuTimes().getIdleMillis());
-        System.out.println(monitor.cpuTimes().getCpuUsage(times));
+        
         
         Network network = new Network();
         
@@ -51,9 +50,9 @@ public class Testi {
         
         System.out.println("------ RAM INFO ------");
         Ram ram = new Ram();
-        System.out.println("ram total: " + ram.getTotalRam() + " Gb");
-        System.out.println("ram free: " + ram.getFreeRam() + " Gb");
-        System.out.println("ram usage: " + ram.getUsageRam() + " Gb");
+        System.out.println("Ram total: " + ram.getTotalRam() + " Gb");
+        System.out.println("Ram free: " + ram.getFreeRam() + " Gb");
+        System.out.println("Ram usage: " + ram.getUsageRam() + " Gb");
         
         
         Disk disk = new Disk();
