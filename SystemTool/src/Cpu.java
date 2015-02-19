@@ -1,5 +1,7 @@
 
 import com.jezhumble.javasysmon.JavaSysMon;
+import com.sun.management.OperatingSystemMXBean;
+import java.lang.management.ManagementFactory;
 
 /**
  *
@@ -11,6 +13,7 @@ public class Cpu {
     private String cpuidentifier;
     private String numberofcores;
     private long frequency;
+    private int cpuload;
     
     
     // Palauttaa prosessorin arkkitehtuurin
@@ -26,7 +29,7 @@ public class Cpu {
     }
     
     // Palauttaa prosessorin ytimien määrän 
-    // (Huom: Intelin hyperthread ytimet lasketaan mukaan myös)
+    // Huom: Intelin hyperthread ytimet lasketaan mukaan myös (kai)
     public String getNumberOfCores() {
         this.numberofcores = System.getenv("NUMBER_OF_PROCESSORS");
         return this.numberofcores;
@@ -37,5 +40,13 @@ public class Cpu {
         JavaSysMon monitor=new JavaSysMon();
         this.frequency = (monitor.cpuFrequencyInHz() / 1000000);
         return this.frequency;
+    }
+    
+    // Palauttaa prosessorin käytön / rasituksen prosentteina
+    // Huom: ensimmäinen tulos ei pidä paikkaansa, stabiloituu vasta muutaman mittauksen jälkeen
+    public int getCpuLoad() {
+        OperatingSystemMXBean operatingSystemMXBean = (com.sun.management.OperatingSystemMXBean)ManagementFactory.getOperatingSystemMXBean();
+        this.cpuload = (int)(operatingSystemMXBean.getSystemCpuLoad() * 100);
+        return this.cpuload;
     }
 }

@@ -35,6 +35,7 @@ public class Testi {
         System.out.println("Identifier: " + cpu.getIdentifier());
         System.out.println("Number of cores: " + cpu.getNumberOfCores());
         System.out.println("CPU frequency: " + cpu.getFrequency() + " MHz");
+        System.out.println("CPU load: " + cpu.getCpuLoad() + " %");
 
         
         
