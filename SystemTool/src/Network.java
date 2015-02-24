@@ -1,4 +1,8 @@
 
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+
+
 /**
  *
  * @author Sami
@@ -8,6 +12,8 @@ public class Network {
     private String computername;
     private String userdomain;
     private String roamingprofile;
+    private String macaddress;
+    private String ipaddress;
     
     // Palauttaa työaseman nimen
     public String getComputerName(){
@@ -26,5 +32,38 @@ public class Network {
     public String getRoamingProfile() {
         this.roamingprofile = System.getenv("USERDOMAIN_ROAMINGPROFILE");
         return this.roamingprofile;
+    }
+    
+    // Valmis koodi : http://stackoverflow.com/questions/19291814/get-mac-address-in-java
+    // Palauttaa verkkokortin mac-osoitteen
+    public String getMacAddress() {
+        try {
+        InetAddress ip = InetAddress.getLocalHost();
+        NetworkInterface net = NetworkInterface.getByInetAddress(ip);
+        
+        byte[] mac = net.getHardwareAddress();
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < mac.length; i++) {
+            sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));        
+        }
+        
+        this.macaddress = sb.toString();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return this.macaddress;
+    }
+    
+    // Valmis koodi : http://stackoverflow.com/questions/19291814/get-mac-address-in-java
+    // Palauttaa nykyisen ip-osoitteen
+    public String getIpAddress() {
+        try {    
+            InetAddress ip = InetAddress.getLocalHost();
+            this.ipaddress = ((String)ip.getHostAddress());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return this.ipaddress;
     }
 }

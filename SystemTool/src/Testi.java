@@ -45,6 +45,8 @@ public class Testi {
         System.out.println("Computer name: " + network.getComputerName());
         System.out.println("User Domain: " + network.getUserDomain());
         System.out.println("Roaming Profile: " + network.getRoamingProfile());
+        System.out.println("Mac address: " + network.getMacAddress());
+        System.out.println("Ip address: " + network.getIpAddress());
         
         Processes p = new Processes();
 
