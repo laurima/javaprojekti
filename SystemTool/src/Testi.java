@@ -47,6 +47,7 @@ public class Testi {
         System.out.println("Roaming Profile: " + network.getRoamingProfile());
         System.out.println("Mac address: " + network.getMacAddress());
         System.out.println("Ip address: " + network.getIpAddress());
+        System.out.println("Interface Name: " + network.getInterfaceName());
         
         Processes p = new Processes();
 

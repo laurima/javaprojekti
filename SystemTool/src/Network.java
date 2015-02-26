@@ -14,6 +14,7 @@ public class Network {
     private String roamingprofile;
     private String macaddress;
     private String ipaddress;
+    private String interfacename;
     
     // Palauttaa työaseman nimen
     public String getComputerName(){
@@ -57,6 +58,7 @@ public class Network {
     
     // Valmis koodi : http://stackoverflow.com/questions/19291814/get-mac-address-in-java
     // Palauttaa nykyisen ip-osoitteen
+    // Huom: sisäverkon osoite
     public String getIpAddress() {
         try {    
             InetAddress ip = InetAddress.getLocalHost();
@@ -65,5 +67,16 @@ public class Network {
             System.out.println(e);
         }
         return this.ipaddress;
+    }
+    
+    public String getInterfaceName() {
+        try {
+            InetAddress ip = InetAddress.getLocalHost();
+            NetworkInterface net = NetworkInterface.getByInetAddress(ip);
+            this.interfacename = (String)net.getDisplayName();
+        } catch (Exception e) {
+            System.out.println(e);
+        }         
+        return this.interfacename;
     }
 }
