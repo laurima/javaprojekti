@@ -69,6 +69,7 @@ public class Network {
         return this.ipaddress;
     }
     
+    // Palauttaa sovittimen nimen
     public String getInterfaceName() {
         try {
             InetAddress ip = InetAddress.getLocalHost();
