@@ -50,7 +50,10 @@ public class Testi {
         System.out.println("Interface Name: " + network.getInterfaceName());
         
         Processes p = new Processes();
-
+        System.out.println("------ PROCESS INFO -------");
+        System.out.println("Explorer.exe sessionname: " + p.getProcessSessionName("explorer.exe"));
+        System.out.println("Explorer.exe memusage: " + p.getProcessMemUsage("explorer.exe"));
+        
         
         System.out.println("------ RAM INFO ------");
         Ram ram = new Ram();

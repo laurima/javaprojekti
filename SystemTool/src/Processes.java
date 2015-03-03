@@ -71,7 +71,9 @@ public class Processes {
                                 this.memusage = String.valueOf(result);
                             }
                         }
-                    }                   
+                    } else {
+                        this.memusage = split[4];
+                    }                
                 }
             }
         }
