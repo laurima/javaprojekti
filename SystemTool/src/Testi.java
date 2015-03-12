@@ -54,6 +54,11 @@ public class Testi {
         System.out.println("Explorer.exe sessionname: " + p.getProcessSessionName("explorer.exe"));
         System.out.println("Explorer.exe memusage: " + p.getProcessMemUsage("explorer.exe"));
         
+        /*
+        for (int i = 0; i < p.getProcesses().length; i++) {
+        System.out.println("Processes: " + p.getProcesses()[i]);
+        }
+        */
         
         System.out.println("------ RAM INFO ------");
         Ram ram = new Ram();
