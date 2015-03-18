@@ -1,7 +1,6 @@
 package cat.jamk;
 
 
-import .*;
 import com.jezhumble.javasysmon.JavaSysMon;
 import com.sun.management.OperatingSystemMXBean;
 import java.lang.management.ManagementFactory;
