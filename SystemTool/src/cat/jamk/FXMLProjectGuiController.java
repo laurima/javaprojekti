@@ -32,4 +32,20 @@ public class FXMLProjectGuiController implements Initializable {
         // TODO
     }    
     
+    @FXML
+    private void handleButtonActionHome(ActionEvent event) {
+        System.out.println("Etusivu!");
+        label.setText("Hello World!");
+    }
+    @FXML
+    private void handleButtonAction2(ActionEvent event) {
+        System.out.println("Sivu2!");
+        label.setText("Hello World!");
+    }
+    @FXML
+    private void handleButtonAction3(ActionEvent event) {
+        System.out.println("sivu3!");
+        label.setText("Hello World!");
+    }
+    
 }
