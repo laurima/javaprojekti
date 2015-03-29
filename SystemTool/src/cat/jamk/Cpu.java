@@ -17,6 +17,14 @@ public class Cpu {
     private long frequency;
     private int cpuload;
     
+    // Konstruktori
+    public Cpu() {
+        cpuarchitecture = "";
+        cpuidentifier = "";
+        numberofcores = "";
+        frequency = 0;
+        cpuload = 0;             
+    }
     
     // Palauttaa prosessorin arkkitehtuurin
     public String getArchitecture() {

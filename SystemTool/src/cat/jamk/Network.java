@@ -18,6 +18,16 @@ public class Network {
     private String ipaddress;
     private String interfacename;
     
+    // Konstruktori
+    public Network() {
+        computername = "";
+        userdomain = "";
+        roamingprofile = "";
+        macaddress = "";
+        ipaddress = "";
+        interfacename = "";
+    }
+    
     // Palauttaa työaseman nimen
     public String getComputerName(){
         this.computername = System.getenv("COMPUTERNAME");

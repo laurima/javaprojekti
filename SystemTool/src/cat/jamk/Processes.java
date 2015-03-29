@@ -15,6 +15,7 @@ public class Processes {
     private String processsessionname;
     private String memusage;
     
+    // Konstruktori
     
     // Tulostaa kaikki käynnissä olevat prosessit tietoineen
     public void printProcesses() {

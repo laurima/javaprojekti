@@ -17,6 +17,17 @@ public class OperatingSystem {
     private String usercountry;
     private String homefolder;
     
+    // Konstruktori
+    public OperatingSystem() {
+        os = "";
+        osversion = "";
+        osarchitecture = "";
+        username = "";
+        userlanguage = "";
+        usercountry = "";
+        homefolder = "";
+    }
+    
     // Palauttaa käyttöjärjestelmän
     public String getOS(){
         this.os = System.getProperty("os.name");

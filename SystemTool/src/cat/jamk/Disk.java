@@ -13,6 +13,13 @@ public class Disk {
     private long usablespace;
     private long freespace;
     
+    // Konstruktori
+    public Disk() {
+        totalspace = 0;
+        usablespace = 0;
+        freespace = 0;
+    }
+    
     // Palauttaa levyn C kokonaistilan
     public long getTotalSpace() {
         File disk = new File("C:");
