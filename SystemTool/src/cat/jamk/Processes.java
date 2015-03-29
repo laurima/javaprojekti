@@ -16,6 +16,12 @@ public class Processes {
     private String memusage;
     
     // Konstruktori
+    public Processes() {
+        processcount = 0;
+        processes = null;
+        processsessionname = "";
+        memusage = "";
+    }
     
     // Tulostaa kaikki käynnissä olevat prosessit tietoineen
     public void printProcesses() {
