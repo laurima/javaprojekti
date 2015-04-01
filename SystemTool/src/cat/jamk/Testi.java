@@ -72,9 +72,9 @@ public class Testi {
         Disk disk = new Disk();
         
         System.out.println("-------- DISK INFO --------");
-        System.out.println("Total space: " + disk.getTotalSpace() + " Mb");
-        System.out.println("Usable space: " + disk.getUsableSpace() + " Mb");
-        System.out.println("Free space: " + disk.getFreeSpace() + " Mb");
+        System.out.println("Total space: " + disk.getTotalSpace() + " Gb");
+        System.out.println("Usable space: " + disk.getUsableSpace() + " Gb");
+        System.out.println("Free space: " + disk.getFreeSpace() + " Gb");
         
         
     }
