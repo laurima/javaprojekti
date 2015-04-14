@@ -96,6 +96,8 @@ public class MysqlHandler {
     }
     
     // Translate
+    // Parametrit: Käännettävä ohjelma/prosessi ja suunta käännökselle
+    // Palauttaa käännöksen
     public String translate(String translate, String direction) {
         switch (direction) {
             case "software":
