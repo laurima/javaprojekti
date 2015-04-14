@@ -98,6 +98,7 @@ public class MysqlHandler {
     // Translate
     // Parametrit: Käännettävä ohjelma/prosessi ja suunta käännökselle
     // Palauttaa käännöksen
+    // esimerkki kutsumisesta: translate("chrome.exe", "software");
     public String translate(String translate, String direction) {
         switch (direction) {
             case "software":
