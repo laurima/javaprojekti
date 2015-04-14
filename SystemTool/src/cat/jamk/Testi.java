@@ -76,6 +76,10 @@ public class Testi {
         System.out.println("Usable space: " + disk.getUsableSpace() + " Gb");
         System.out.println("Free space: " + disk.getFreeSpace() + " Gb");
         
+        MysqlHandler mysqlhandler = new MysqlHandler();
         
+        System.out.println("-------- MYSQL INFO --------");
+        System.out.println("Process -> Software: " + mysqlhandler.translate("chrome.exe", "software"));
+        System.out.println("Software -> Process: " + mysqlhandler.translate("Google Chrome", "process"));
     }
 }

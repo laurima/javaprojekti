@@ -12,7 +12,9 @@ package cat.jamk;
  */
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class MysqlHandler {
@@ -25,25 +27,30 @@ public class MysqlHandler {
     private String user;
     private String pass;
     
-    // Connection ja statement
-    Connection conn;
-    Statement stmt;
+    // Connection, statement ja query
+    private Connection conn;
+    private Statement stmt;
+    private String query;
+    private String result;
+    private String searchcolumn;
     
     // Results
-    String result;
+    ResultSet rs;
     
     public MysqlHandler() {
         driver = "com.mysql.jdbc.Driver";
-        db_url = "jdbc:mysql://student.labranet.jamk.fi";
+        db_url = "jdbc:mysql://mysql.labranet.jamk.fi/H8543";
         user = "H8543";
-        pass = "7qZZ6Iex5Ni84fuRl0IhbsMPyiY7f4ED"; // TODO: lisää passu
+        pass = "7qZZ6Iex5Ni84fuRl0IhbsMPyiY7f4ED";
         conn = null;
         stmt = null;
+        rs = null;
+        query = "";
         result = "";
     }
     
     // Connect
-    public void connect() {
+    private void connect() {
         try {
             // JDBC driverin rekisteröinti
             Class.forName("com.mysql.jdbc.Driver");
@@ -55,10 +62,16 @@ public class MysqlHandler {
     }
     
     // Disconnect
-    public void disconnect() {
+    private void disconnect() {
         try {
             if (conn != null) {
                 conn.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (rs != null) {
+                rs.close();
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -70,8 +83,44 @@ public class MysqlHandler {
         
     }
     // Read
-    public String read(String readvalue) {
+    public ResultSet read(String readvalue) {
+        try {
+            connect();
+            conn.createStatement();
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            disconnect();
+        }
+        return this.rs;
+    }
+    
+    // Translate
+    public String translate(String translate, String direction) {
+        switch (direction) {
+            case "software":
+                query = "select ohjelma from tbl_translation where prosessi = \"" + translate + "\"";
+                searchcolumn = "ohjelma";
+                break;
+            case "process":
+                query = "select prosessi from tbl_translation where ohjelma = \"" + translate + "\"";
+                searchcolumn = "prosessi";
+                break;
+        }
         
+       try {
+                    connect();
+                    stmt = conn.createStatement();
+                    rs = stmt.executeQuery(query);
+                    if (rs.next()) {
+                        result = rs.getString(searchcolumn);
+                    }
+                } catch (Exception e) {
+                    System.out.println(e);
+                } finally {
+                    disconnect();
+                }
+       
         return this.result;
     }
 }
