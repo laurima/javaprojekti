@@ -11,40 +11,34 @@
 
 <AnchorPane id="AnchorPane" minHeight="575.568359375" prefHeight="575.568359375" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cat.jamk.FXMLProjectGuiController">
   <children>
-    <StackPane layoutX="-7.0" layoutY="8.0" prefHeight="559.0" prefWidth="815.0">
+    <ImageView fitHeight="87.75" fitWidth="117.0" layoutX="683.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+    <StackPane layoutX="0.0" layoutY="63.0" prefHeight="513.0" prefWidth="808.0">
       <children>
-        <AnchorPane prefHeight="540.0" prefWidth="786.0">
-          <children>
-            <Label layoutX="376.0" layoutY="292.0" text="sivu3" />
-          </children>
-        </AnchorPane>
-        <AnchorPane prefHeight="569.0" prefWidth="800.0">
-          <children>
-            <Label layoutX="352.0" layoutY="284.0" text="Sivu2" />
-          </children>
-        </AnchorPane>
-        <AnchorPane prefHeight="527.2578125" prefWidth="815.0">
-          <children>
-            <ImageView fitHeight="600.0" fitWidth="654.7825927734375" layoutX="80.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@../../../cerberusmock6b.png" />
-              </image>
-            </ImageView>
-            <Button fx:id="button" layoutX="368.0" layoutY="280.0" onAction="#handleButtonAction" text="Click Me!" />
-            <Label fx:id="label" layoutX="373.0" layoutY="282.0" minHeight="16.0" minWidth="69.0" />
-            <PieChart id="PieChart" layoutX="158.0" layoutY="90.0" title="Piechart" />
-            <Text layoutX="343.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="System Specification" />
-            <TextArea layoutX="308.0" layoutY="208.0" prefWidth="200.0" wrapText="true" />
-          </children>
-        </AnchorPane>
+        <TabPane prefHeight="513.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+            <Tab text="Etusivu">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <PieChart id="PieChart" layoutX="41.0" layoutY="32.0" prefHeight="413.0" prefWidth="428.0" title="Piechart" />
+                    <Text layoutX="582.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="System Specifications:" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Prosessit">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="CPU">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
       </children>
     </StackPane>
-    <AnchorPane layoutX="-71.0" layoutY="-100.0" prefHeight="200.0" prefWidth="888.0">
-      <children>
-        <Button fx:id="homeButton" layoutX="97.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonActionHome" text="Home" />
-        <Button id="sivu1" fx:id="sivu2" layoutX="178.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonAction2" text="sivu2" />
-        <Button fx:id="sivu3" layoutX="262.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleButtonAction3" text="sivu3" />
-      </children>
-    </AnchorPane>
   </children>
 </AnchorPane>

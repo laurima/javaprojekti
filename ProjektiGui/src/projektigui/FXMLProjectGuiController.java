@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cat.jamk;
+package projektigui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,28 +25,11 @@ public class FXMLProjectGuiController implements Initializable {
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
-        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
-    @FXML
-    private void handleButtonActionHome(ActionEvent event) {
-        System.out.println("Etusivu!");
-        label.setText("Hello World!");
-    }
-    @FXML
-    private void handleButtonAction2(ActionEvent event) {
-        System.out.println("Sivu2!");
-        label.setText("Hello World!");
-    }
-    @FXML
-    private void handleButtonAction3(ActionEvent event) {
-        System.out.println("sivu3!");
-        label.setText("Hello World!");
-    }
     
 }
