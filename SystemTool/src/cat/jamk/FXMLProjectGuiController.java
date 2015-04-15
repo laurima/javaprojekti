@@ -18,32 +18,92 @@ import javafx.scene.control.ScrollPane;
  */
 public class FXMLProjectGuiController {
     
-        @FXML
-    private ResourceBundle resources;
+    @FXML
+    private Label computernametext2;
 
-        @FXML
-    private URL location;
+    @FXML
+    private Label cpuarchitecturetext2;
+
+    @FXML
+    private Label cpufrequencytext2;
 
     @FXML
     private Label cputext;
 
     @FXML
+    private Label diskfreespacetext2;
+
+    @FXML
     private Label disktext;
+
+    @FXML
+    private Label disktext2;
+
+    @FXML
+    private Label homefoldertext2;
+
+    @FXML
+    private Label identifiertext2;
+
+    @FXML
+    private Label interfacenametext2;
+
+    @FXML
+    private Label ipaddresstext2;
+
+    @FXML
+    private Label macaddresstext2;
+
+    @FXML
+    private Label networktext2;
+
+    @FXML
+    private Label numberofcorestext2;
+
+    @FXML
+    private Label osarchitecturetext2;
 
     @FXML
     private Label ostext;
 
     @FXML
-    private Label ramtext;
+    private Label ostext2;
+
+    @FXML
+    private Label osversiontext2;
+
+    @FXML
+    private ScrollPane processesscroll;
+
+    @FXML
+    private Label processlisttext;
+
+    @FXML
+    private Label ramfreespacetext2;
+
+
+    @FXML
+    private Label ramtext2;
+
+    @FXML
+    private Label roamingprofiletext2;
+
+    @FXML
+    private Label usercountry2;
+
+    @FXML
+    private Label userdomaintext2;
+
+    @FXML
+    private Label userlanguagetext2;
+
+    @FXML
+    private Label usernametext2;
 
     @FXML
     private Label usertext;
-    
-    @FXML
-    private Label processlisttext;
-    
-    @FXML
-    private ScrollPane processesscroll;
+
+
 
 
         
@@ -66,8 +126,8 @@ public class FXMLProjectGuiController {
     String cpuarchitecture = cpu.getArchitecture();
     String identifier = cpu.getIdentifier();
     String numberofcores = cpu.getNumberOfCores();
-    long cpufrequency = cpu.getFrequency();
-    int cpuload = cpu.getCpuLoad();
+    String cpufrequency = Long.toString(cpu.getFrequency());
+    String cpuload = Integer.toString(cpu.getCpuLoad());
     //network
     String computername = network.getComputerName();
     String userdomain = network.getUserDomain();
@@ -86,32 +146,56 @@ public class FXMLProjectGuiController {
     String disktotalspace = Long.toString(disk.getTotalSpace());
     String diskusablespace = Long.toString(disk.getUsableSpace());
     String diskfreespace = Long.toString(disk.getUsableSpace());
-        
-    
-    
-    
-    
 
-    
-    
     
     @FXML
     void initialize() {
 
+        assert computernametext2 != null : "fx:id=\"computernametext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert cpuarchitecturetext2 != null : "fx:id=\"cpuarchitecturetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert cpufrequencytext2 != null : "fx:id=\"cpufrequencytext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert cputext != null : "fx:id=\"cputext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert diskfreespacetext2 != null : "fx:id=\"diskfreespacetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert disktext != null : "fx:id=\"disktext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert disktext2 != null : "fx:id=\"disktext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert homefoldertext2 != null : "fx:id=\"homefoldertext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert identifiertext2 != null : "fx:id=\"identifiertext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert interfacenametext2 != null : "fx:id=\"interfacenametext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert ipaddresstext2 != null : "fx:id=\"ipaddresstext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert macaddresstext2 != null : "fx:id=\"macaddresstext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert networktext2 != null : "fx:id=\"networktext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert numberofcorestext2 != null : "fx:id=\"numberofcorestext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert osarchitecturetext2 != null : "fx:id=\"osarchitecturetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert ostext != null : "fx:id=\"ostext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
-        assert ramtext != null : "fx:id=\"ramtext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
-        assert usertext != null : "fx:id=\"usertext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert ostext2 != null : "fx:id=\"ostext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert osversiontext2 != null : "fx:id=\"osversiontext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert processesscroll != null : "fx:id=\"processesscroll\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert processlisttext != null : "fx:id=\"processlisttext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert ramfreespacetext2 != null : "fx:id=\"ramfreespacetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert ramtext2 != null : "fx:id=\"ramtext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert roamingprofiletext2 != null : "fx:id=\"roamingprofiletext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert usercountry2 != null : "fx:id=\"usercountry2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert userdomaintext2 != null : "fx:id=\"userdomaintext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert userlanguagetext2 != null : "fx:id=\"userlanguagetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert usernametext2 != null : "fx:id=\"usernametext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert usertext != null : "fx:id=\"usertext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         
+        
+        //etusivun tietoja
         cputext.setText(cpuarchitecture + " " + numberofcores + " " + cpufrequency);
-        ramtext.setText(ramtotalspace);
+        ramtext2.setText(ramtotalspace);
         ostext.setText(os + " " + osversion);
         disktext.setText(disktotalspace);
         usertext.setText(username);
+        
+        //takasivun tietoja
+        
+        ostext2.setText(os);
+        
+        
+        
         for (int i = 0; i < processes.getProcesses().length; i++) {
-        processlisttext.setText(processes.getProcesses()[i] + "        " + processes.getProcessMemUsage(os));
+        processlisttext.setText(processes.getProcesses()[i] + "        " + processes.getProcessMemUsage(os) + "\n");
 
         }
         

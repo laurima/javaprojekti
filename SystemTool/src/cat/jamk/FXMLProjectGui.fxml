@@ -78,6 +78,113 @@
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
+            <Tab text="Tiedot">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <GridPane layoutX="14.0" layoutY="14.0" prefHeight="512.0" prefWidth="362.0">
+                      <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Operating System" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OS" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OS version" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Architecture" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User language" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User country" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Homefolder" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPU" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Architecture" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Identifier" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of cores" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Frequency" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                        <Label fx:id="ostext2" text="ostext" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="osversiontext2" text="osversiontext" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label id="architecturetext" fx:id="osarchitecturetext2" text="architecturetext" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="usernametext2" text="usernametext" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label id="usernametext2" fx:id="userlanguagetext2" text="userlanguagetext" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="usercountry2" text="usercountry" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label id="homefouldertext2" fx:id="homefoldertext2" text="homefoldertext" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label id="identifiertext" fx:id="identifiertext2" text="identifiertext" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <Label id="cpuarchitecture2text" fx:id="cpuarchitecturetext2" text="cpuarchitecturetext" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <Label fx:id="numberofcorestext2" text="numberofcorestext" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                        <Label fx:id="cpufrequencytext2" text="cpufrequencytext2" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                    <GridPane layoutX="409.0" layoutY="14.0" prefHeight="506.0" prefWidth="378.0">
+                      <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Network" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Computer name" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Userdomain" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Roaming profile" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mac address" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ip address" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Interface name" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ram" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Free space" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Disk" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Free space" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                        <Label fx:id="networktext2" text="networktext" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label id="computernametext22" fx:id="computernametext2" text="computernametext" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="userdomaintext2" text="userdomaintext" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="roamingprofiletext2" text="roamingprofiletext" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="macaddresstext2" text="macaddresstext" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="ipaddresstext2" text="ipaddresstext" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="interfacenametext2" text="interfacenametext" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label fx:id="ramtext2" text="ramtext" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <Label id="ramfreespacetext" fx:id="ramfreespacetext2" text="ramfreespacetext" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Label fx:id="disktext2" text="disktext" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <Label fx:id="diskfreespacetext2" text="diskfreespace" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
           </tabs>
         </TabPane>
       </children>
