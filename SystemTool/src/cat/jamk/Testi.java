@@ -78,10 +78,14 @@ public class Testi {
         
         MysqlHandler mysqlhandler = new MysqlHandler();
         
-        System.out.println("-------- MYSQL INFO --------");
+        if (mysqlhandler.isConnection()) {
+        System.out.println("-------- MYSQL INFO --------");        
         System.out.println("Process -> Software: " + mysqlhandler.translate("chrome.exe", "software"));
         System.out.println("Software -> Process: " + mysqlhandler.translate("Google Chrome", "process"));
+        }
         
+        System.out.println(mysqlhandler.isConnection());
+               
         ThreadController thread1 = new ThreadController("Visualization");
         ThreadController thread2 = new ThreadController("Analyzation");
         thread1.start();

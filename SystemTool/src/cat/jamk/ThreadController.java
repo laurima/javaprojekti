@@ -8,11 +8,10 @@ package cat.jamk;
 
 /**
  *
- * @author h8543
+ * @author Sami
  */
 public class ThreadController extends Thread {
     
-    private Thread thread;
     private String name;
     
     // Konstruktori
@@ -22,8 +21,20 @@ public class ThreadController extends Thread {
     
     @Override
     public void run() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Thread name: " + name);
+        while (true) {
+            if (name.equals("Visualization")) {                
+                // TODO: visualisoinnin päivittäminen
+                System.out.println("Thread: " + name);
+            }
+            if (name.equals("Analyzation")) {
+                // TODO: tausta analysointi, mysliin tuuppaukset
+                System.out.println("Thread: " + name);
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }
 

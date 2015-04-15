@@ -50,7 +50,9 @@ public class MysqlHandler {
         result = "";
     }
     
-    public boolean isConnection() {        
+    public boolean isConnection() {
+        connect();
+        disconnect();
         return isConnection;
     }
 
@@ -64,7 +66,7 @@ public class MysqlHandler {
             isConnection = true;
         } catch (Exception e) {
             isConnection = false;
-            System.out.println(e);
+            //System.out.println(e);
         }      
     }
     
