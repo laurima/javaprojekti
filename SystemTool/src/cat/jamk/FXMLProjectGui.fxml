@@ -61,7 +61,16 @@
             </Tab>
             <Tab text="Prosessit">
               <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <ScrollPane fx:id="processesscroll" layoutX="425.0" layoutY="76.0" prefHeight="386.0" prefWidth="361.0">
+                      <content>
+                        <Label id="Processlisttext" fx:id="processlisttext" text="processlisttext" />
+                      </content>
+                    </ScrollPane>
+                    <PieChart id="PieChart" fx:id="processpiechart" layoutX="14.0" layoutY="76.0" prefHeight="386.0" prefWidth="386.0000999999975" title="Process piechart" />
+                  </children>
+                </AnchorPane>
               </content>
             </Tab>
             <Tab text="CPU">

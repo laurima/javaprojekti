@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 
 /**
  *
@@ -37,6 +38,12 @@ public class FXMLProjectGuiController {
 
     @FXML
     private Label usertext;
+    
+    @FXML
+    private Label processlisttext;
+    
+    @FXML
+    private ScrollPane processesscroll;
 
 
         
@@ -96,12 +103,17 @@ public class FXMLProjectGuiController {
         assert ostext != null : "fx:id=\"ostext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert ramtext != null : "fx:id=\"ramtext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert usertext != null : "fx:id=\"usertext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
-
+        assert processlisttext != null : "fx:id=\"processlisttext\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        
         cputext.setText(cpuarchitecture + " " + numberofcores + " " + cpufrequency);
         ramtext.setText(ramtotalspace);
         ostext.setText(os + " " + osversion);
         disktext.setText(disktotalspace);
         usertext.setText(username);
+        for (int i = 0; i < processes.getProcesses().length; i++) {
+        processlisttext.setText(processes.getProcesses()[i] + "        " + processes.getProcessMemUsage(os));
+
+        }
         
         
 }
