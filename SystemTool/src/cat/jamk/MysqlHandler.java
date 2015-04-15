@@ -12,7 +12,6 @@ package cat.jamk;
  */
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -28,16 +27,18 @@ public class MysqlHandler {
     private String pass;
     
     // Connection, statement ja query
+    private boolean isConnection;
     private Connection conn;
     private Statement stmt;
-    private String query;
-    private String result;
+    private String query;  
     private String searchcolumn;
     
     // Results
-    ResultSet rs;
+    private ResultSet rs;
+    private String result;
     
     public MysqlHandler() {
+        isConnection = false;
         driver = "com.mysql.jdbc.Driver";
         db_url = "jdbc:mysql://mysql.labranet.jamk.fi/H8543";
         user = "H8543";
@@ -49,6 +50,10 @@ public class MysqlHandler {
         result = "";
     }
     
+    public boolean isConnection() {        
+        return isConnection;
+    }
+
     // Connect
     private void connect() {
         try {
@@ -56,9 +61,11 @@ public class MysqlHandler {
             Class.forName("com.mysql.jdbc.Driver");
             // Avataan connection
             conn = DriverManager.getConnection(db_url, user, pass);
+            isConnection = true;
         } catch (Exception e) {
+            isConnection = false;
             System.out.println(e);
-        }
+        }      
     }
     
     // Disconnect
@@ -79,7 +86,7 @@ public class MysqlHandler {
     }
     
     // Insert
-    public void insert(String insertvalue) {
+    public void insert(String insertvalue, String inserttable) {
         
     }
     // Read
@@ -96,7 +103,7 @@ public class MysqlHandler {
     }
     
     // Translate
-    // Parametrit: Käännettävä ohjelma/prosessi ja suunta käännökselle
+    // Parametrit: Käännettävän ohjelman/prosessin nimi ja suunta käännökselle
     // Palauttaa käännöksen
     // esimerkki kutsumisesta: translate("chrome.exe", "software");
     public String translate(String translate, String direction) {
@@ -111,19 +118,19 @@ public class MysqlHandler {
                 break;
         }
         
-       try {
-                    connect();
-                    stmt = conn.createStatement();
-                    rs = stmt.executeQuery(query);
-                    if (rs.next()) {
-                        result = rs.getString(searchcolumn);
-                    }
-                } catch (Exception e) {
-                    System.out.println(e);
-                } finally {
-                    disconnect();
-                }
-       
-        return this.result;
-    }
+        try {
+            connect();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+            if (rs.next()) {
+                result = rs.getString(searchcolumn);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            disconnect();
+        }
+
+            return this.result;
+        }
 }

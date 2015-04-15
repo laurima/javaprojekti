@@ -81,5 +81,10 @@ public class Testi {
         System.out.println("-------- MYSQL INFO --------");
         System.out.println("Process -> Software: " + mysqlhandler.translate("chrome.exe", "software"));
         System.out.println("Software -> Process: " + mysqlhandler.translate("Google Chrome", "process"));
+        
+        ThreadController thread1 = new ThreadController("Visualization");
+        ThreadController thread2 = new ThreadController("Analyzation");
+        thread1.start();
+        thread2.start();
     }
 }
