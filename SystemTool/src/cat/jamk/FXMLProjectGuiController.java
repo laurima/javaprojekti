@@ -18,8 +18,24 @@ import javafx.scene.control.Label;
  */
 public class FXMLProjectGuiController implements Initializable {
     
+    OperatingSystem operatingsystem = new OperatingSystem();
+    
+    String osversion = operatingsystem.getOsVersion();
+    String os = operatingsystem.getOS();
+    String osarchitecture = operatingsystem.getOsArchitecture();
+    String username = operatingsystem.getUsername();
+    String userlanguage = operatingsystem.getUserLanguage();
+    String homefolder = operatingsystem.getHomeFolder();
+    String usercountry = operatingsystem.getUserCountry();
+    
+    
+    
     @FXML
     private Label label;
+    
+        
+    
+    
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -32,21 +48,5 @@ public class FXMLProjectGuiController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
-    @FXML
-    private void handleButtonActionHome(ActionEvent event) {
-        System.out.println("Etusivu!");
-        label.setText("Hello World!");
-    }
-    @FXML
-    private void handleButtonAction2(ActionEvent event) {
-        System.out.println("Sivu2!");
-        label.setText("Hello World!");
-    }
-    @FXML
-    private void handleButtonAction3(ActionEvent event) {
-        System.out.println("sivu3!");
-        label.setText("Hello World!");
-    }
-    
+  
 }
