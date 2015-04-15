@@ -89,7 +89,7 @@ public class FXMLProjectGuiController {
     private Label roamingprofiletext2;
 
     @FXML
-    private Label usercountry2;
+    private Label usercountrytext2;
 
     @FXML
     private Label userdomaintext2;
@@ -174,7 +174,7 @@ public class FXMLProjectGuiController {
         assert ramfreespacetext2 != null : "fx:id=\"ramfreespacetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert ramtext2 != null : "fx:id=\"ramtext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert roamingprofiletext2 != null : "fx:id=\"roamingprofiletext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
-        assert usercountry2 != null : "fx:id=\"usercountry2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
+        assert usercountrytext2 != null : "fx:id=\"usercountry2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert userdomaintext2 != null : "fx:id=\"userdomaintext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert userlanguagetext2 != null : "fx:id=\"userlanguagetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert usernametext2 != null : "fx:id=\"usernametext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
@@ -189,8 +189,33 @@ public class FXMLProjectGuiController {
         usertext.setText(username);
         
         //takasivun tietoja
-        
         ostext2.setText(os);
+        osversiontext2.setText(osversion);
+        osarchitecturetext2.setText(osarchitecture);
+        usernametext2.setText(username);
+        userlanguagetext2.setText(userlanguage);
+        usercountrytext2.setText(usercountry);
+        homefoldertext2.setText(homefolder);
+        
+        cpuarchitecturetext2.setText(cpuarchitecture);
+        identifiertext2.setText(identifier);
+        numberofcorestext2.setText(numberofcores);
+        cpufrequencytext2.setText(cpufrequency);
+        
+        networktext2.setText(computername);
+        computernametext2.setText(computername);
+        userdomaintext2.setText(userdomain);
+        roamingprofiletext2.setText(roamingprofile);
+        macaddresstext2.setText(macaddress);
+        ipaddresstext2.setText(ipaddress);
+        interfacenametext2.setText(interfacename);
+        
+        ramtext2.setText(ramtotalspace);
+        ramfreespacetext2.setText(ramfreespace);
+        
+        disktext2.setText(disktotalspace);
+        diskfreespacetext2.setText(diskfreespace);
+        
         
         
         

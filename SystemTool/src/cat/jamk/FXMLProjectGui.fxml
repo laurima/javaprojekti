@@ -59,7 +59,7 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Prosessit">
+            <Tab text="CPU">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -73,7 +73,7 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="CPU">
+            <Tab text="Ram">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
@@ -99,10 +99,10 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Frequency" GridPane.columnIndex="0" GridPane.rowIndex="14" />
                         <Label fx:id="ostext2" text="ostext" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label fx:id="osversiontext2" text="osversiontext" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label id="architecturetext" fx:id="osarchitecturetext2" text="architecturetext" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label id="architecturetext" fx:id="osarchitecturetext2" text="osarchitecturetext" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label fx:id="usernametext2" text="usernametext" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label id="usernametext2" fx:id="userlanguagetext2" text="userlanguagetext" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label fx:id="usercountry2" text="usercountry" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label id="usercountry2" fx:id="usercountrytext2" text="usercountrytext" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                         <Label id="homefouldertext2" fx:id="homefoldertext2" text="homefoldertext" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                         <Label id="identifiertext" fx:id="identifiertext2" text="identifiertext" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                         <Label id="cpuarchitecture2text" fx:id="cpuarchitecturetext2" text="cpuarchitecturetext" GridPane.columnIndex="1" GridPane.rowIndex="11" />
