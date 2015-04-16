@@ -3,7 +3,6 @@ package cat.jamk;
 
 import com.jezhumble.javasysmon.JavaSysMon;
 
-
 /**
  *
  * @author Sami
@@ -25,7 +24,6 @@ public class Ram {
         JavaSysMon monitor = new JavaSysMon();
 
         long totalBytes = monitor.physical().getTotalBytes();
-        
         this.totalram = totalBytes/(float)(1024*1024*1024);
           
         return this.totalram;

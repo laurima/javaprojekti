@@ -25,6 +25,14 @@ public class ProjektiGui extends Application {
         
         stage.setScene(scene);
         stage.show();
+        
+        // Threads
+        ThreadController visual = new ThreadController("Visualization");
+        ThreadController analytics = new ThreadController("Analyzation");
+        
+        visual.start();
+        analytics.start();
+        
     }
 
     /**
@@ -32,6 +40,6 @@ public class ProjektiGui extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-    }
-    
+    }    
+
 }

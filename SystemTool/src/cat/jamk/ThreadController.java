@@ -16,8 +16,8 @@ public class ThreadController extends Thread {
     
     // Konstruktori
     public ThreadController(String name) {
-        this.name = name;
-    }
+        this.name = name;        
+    }        
     
     @Override
     public void run() {
@@ -27,16 +27,17 @@ public class ThreadController extends Thread {
                 System.out.println("Thread: " + name);
             }
             if (name.equals("Analyzation")) {
+                MysqlHandler handler = new MysqlHandler();
+                if (handler.isConnection()) {
                 // TODO: tausta analysointi, mysliin tuuppaukset
                 System.out.println("Thread: " + name);
-            }
+                }
+            }           
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
-    }
-
-    
+    }   
 }
