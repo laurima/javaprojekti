@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.chart.*?>
@@ -9,13 +10,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
+<?scenebuilder-stylesheet mainstyle.css?>
 
 <AnchorPane id="AnchorPane" minHeight="575.568359375" prefHeight="575.568359375" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cat.jamk.FXMLProjectGuiController">
   <children>
     <ImageView fitHeight="87.75" fitWidth="117.0" layoutX="683.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
     <StackPane layoutX="0.0" layoutY="0.0" prefHeight="576.0" prefWidth="800.0">
       <children>
-        <TabPane prefHeight="562.0" prefWidth="808.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane prefHeight="562.0" prefWidth="808.0" style="-fx-backgound-color: #ff0000" tabClosingPolicy="UNAVAILABLE">
+          <stylesheets>
+            <URL value="@mainstyle.css" />
+          </stylesheets>
           <tabs>
             <Tab text="Etusivu">
               <content>
@@ -33,7 +38,7 @@
                         <Label id="languagetext" fx:id="cputext" text="cputext" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="usertext" text="usertext" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label fx:id="ostext" text="ostext" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Text fx:id="ramtext" strokeType="OUTSIDE" strokeWidth="0.0" text="Ram" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Text fx:id="ramtext2" strokeType="OUTSIDE" strokeWidth="0.0" text="Ram" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                         <Label fx:id="ramtext" text="ramtext" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                       </children>
                       <columnConstraints>
@@ -60,7 +65,7 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="CPUx">
+            <Tab id="TABcpu" styleClass="TAB" text="CPU">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -188,12 +193,6 @@
             </Tab>
           </tabs>
         </TabPane>
-        <Pane prefHeight="33.0" prefWidth="219.00009999999747">
-          <children>
-            <Text layoutX="701.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VPN yhteys" />
-            <Circle fill="#ff3333" layoutX="786.0" layoutY="19.0" radius="7.6552734375" stroke="BLACK" strokeType="INSIDE" />
-          </children>
-        </Pane>
       </children>
     </StackPane>
   </children>

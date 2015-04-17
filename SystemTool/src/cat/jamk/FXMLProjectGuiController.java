@@ -6,6 +6,7 @@
 package cat.jamk;
 
 
+import java.sql.Array;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -16,93 +17,16 @@ import javafx.scene.control.ScrollPane;
  */
 public class FXMLProjectGuiController {
     
-    @FXML
-    private Label computernametext2;
+    Array muuttujalista = new Array("computernametext2", "cpuarchitecturetext2", "cpufrequencytext2", "cputext", "diskfreespacetext2", "disktext", "disktext2", "homefoldertext2", "identifiertext2", "interfacenametext2", "ipaddresstext2", "macaddresstext2", "networktext2", "numberofcorestext2", "osarchitecturetext", "ostext", "ostext2", "osversiontext2", "processlisttext", "ramfreespacetext2", "ramtext2", "roamingprofiletext2", "usercountrytext2", "userdomaintext2", "userlanguagetext2", "usernametext2", "usertext");
+    
+    
+    for (int i=0; muuttujalista.getLenght() < i;i++){
+    private Label muuttujalista(i);
+}
 
-    @FXML
-    private Label cpuarchitecturetext2;
-
-    @FXML
-    private Label cpufrequencytext2;
-
-    @FXML
-    private Label cputext;
-
-    @FXML
-    private Label diskfreespacetext2;
-
-    @FXML
-    private Label disktext;
-
-    @FXML
-    private Label disktext2;
-
-    @FXML
-    private Label homefoldertext2;
-
-    @FXML
-    private Label identifiertext2;
-
-    @FXML
-    private Label interfacenametext2;
-
-    @FXML
-    private Label ipaddresstext2;
-
-    @FXML
-    private Label macaddresstext2;
-
-    @FXML
-    private Label networktext2;
-
-    @FXML
-    private Label numberofcorestext2;
-
-    @FXML
-    private Label osarchitecturetext2;
-
-    @FXML
-    private Label ostext;
-
-    @FXML
-    private Label ostext2;
-
-    @FXML
-    private Label osversiontext2;
 
     @FXML
     private ScrollPane processesscroll;
-
-    @FXML
-    private Label processlisttext;
-
-    @FXML
-    private Label ramfreespacetext2;
-
-
-    @FXML
-    private Label ramtext2;
-
-    @FXML
-    private Label roamingprofiletext2;
-
-    @FXML
-    private Label usercountrytext2;
-
-    @FXML
-    private Label userdomaintext2;
-
-    @FXML
-    private Label userlanguagetext2;
-
-    @FXML
-    private Label usernametext2;
-
-    @FXML
-    private Label usertext;
-
-
-
 
         
     OperatingSystem operatingsystem = new OperatingSystem();
