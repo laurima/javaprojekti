@@ -19,6 +19,10 @@ public class ProjektiGui extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        
+        // Käyttäjän lisääminen
+        userRegister();
+        
         Parent root = FXMLLoader.load(getClass().getResource("FXMLProjectGui.fxml"));
         
         Scene scene = new Scene(root);
@@ -26,10 +30,11 @@ public class ProjektiGui extends Application {
         stage.setScene(scene);
         stage.show();
         
+        
         // Threads
         ThreadController visual = new ThreadController("Visualization");
         ThreadController analytics = new ThreadController("Analyzation");
-        
+                
         visual.start();
         analytics.start();
         
@@ -42,4 +47,17 @@ public class ProjektiGui extends Application {
         launch(args);
     }    
 
+    // Tsekataan onko käyttäjä jo databasessa ja jos ei niin lisätään.
+    private void userRegister() {
+        MysqlHandler handler = new MysqlHandler();        
+        if (handler.isConnection()) {
+            Network nw = new Network();
+            if (!(nw.getMacAddress().equals(""))) {
+                if (!(handler.isUserInDB(nw.getMacAddress()))) {
+                    OperatingSystem os = new OperatingSystem();
+                    handler.insertNewUser(nw.getMacAddress(), nw.getComputerName(), os.getUsername(), os.getUserCountry(), os.getUserLanguage());
+                }
+            }
+        }
+    }
 }

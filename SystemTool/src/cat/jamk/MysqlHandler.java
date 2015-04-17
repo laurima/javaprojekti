@@ -40,7 +40,6 @@ public class MysqlHandler {
     
     // Konstruktori
     public MysqlHandler() {
-        Network nw = new Network();
         
         isConnection = false;
         driver = "com.mysql.jdbc.Driver";
@@ -52,7 +51,9 @@ public class MysqlHandler {
         rs = null;
         query = "";
         result = "";
-        isUserInDB = isUserInDB(nw.getMacAddress());
+        searchcolumn = "";
+        isUserInDB = false;
+
     }
     
     // Connectionin tsekkaaminen
