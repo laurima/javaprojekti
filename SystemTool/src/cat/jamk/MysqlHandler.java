@@ -28,6 +28,7 @@ public class MysqlHandler {
     
     // Connection, statement ja query
     private boolean isConnection;
+    private boolean isUserInDB;
     private Connection conn;
     private Statement stmt;
     private String query;  
@@ -37,7 +38,10 @@ public class MysqlHandler {
     private ResultSet rs;
     private String result;
     
+    // Konstruktori
     public MysqlHandler() {
+        Network nw = new Network();
+        
         isConnection = false;
         driver = "com.mysql.jdbc.Driver";
         db_url = "jdbc:mysql://mysql.labranet.jamk.fi/H8543";
@@ -48,8 +52,10 @@ public class MysqlHandler {
         rs = null;
         query = "";
         result = "";
+        isUserInDB = isUserInDB(nw.getMacAddress());
     }
     
+    // Connectionin tsekkaaminen
     public boolean isConnection() {
         connect();
         disconnect();
@@ -87,21 +93,54 @@ public class MysqlHandler {
         }
     }
     
-    // Insert
-    public void insert(String insertvalue, String inserttable) {
-        
+    // Käyttäjän lisääminen tietokantaan
+    public void insertNewUser(String mac, String computername, String username, String country, String language) {
+        query = "insert into tbl_users (mac, computername, user, country, lang) values ('" + mac + "', '" + computername + "', '" + username + "',' " + country + "', '" + language + "');";
+        executeQuery(query);
     }
-    // Read
-    public ResultSet read(String readvalue) {
+    
+    // Käyttäjän tsekkaaminen tietokannasta
+    public boolean isUserInDB (String mac) {
+        query = "select user from tbl_users where mac = '" + mac + "';";
+        
+        if (searchDB(query, "user") != null) {
+            isUserInDB = true;
+        } else {
+            isUserInDB = false;  
+        }
+        return isUserInDB;
+    }
+    
+    // Kyselyn toteuttaminen
+    private void executeQuery(String query) {
         try {
             connect();
-            conn.createStatement();
+            stmt = conn.createStatement();
+            stmt.executeQuery(query);
         } catch (Exception e) {
             System.out.println(e);
         } finally {
             disconnect();
         }
-        return this.rs;
+    }
+    
+    // Tietokannasta etsiminen
+    private String searchDB(String query, String searchcolumn) {
+        try {
+            connect();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+            if (rs.next()) {
+                result = rs.getString(searchcolumn);
+            }
+        } catch (Exception e) {
+            result = null;
+            System.out.println(e);
+        } finally {
+            disconnect();
+        }
+        
+        return this.result;
     }
     
     // Translate
@@ -120,19 +159,8 @@ public class MysqlHandler {
                 break;
         }
         
-        try {
-            connect();
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(query);
-            if (rs.next()) {
-                result = rs.getString(searchcolumn);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        } finally {
-            disconnect();
-        }
+        this.result = searchDB(query, searchcolumn);
 
-            return this.result;
-        }
+        return this.result;
+    }
 }

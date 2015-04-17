@@ -30,6 +30,7 @@ public class ThreadController extends Thread {
                 MysqlHandler handler = new MysqlHandler();
                 if (handler.isConnection()) {
                 // TODO: tausta analysointi, mysliin tuuppaukset
+                    
                 System.out.println("Thread: " + name);
                 }
             }           
