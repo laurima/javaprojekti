@@ -148,7 +148,7 @@ public class FXMLProjectGuiController {
     
     @FXML
     void initialize() {
-
+//labelit taulukkoon ja taulukolla loopataan assert
         assert computernametext2 != null : "fx:id=\"computernametext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert cpuarchitecturetext2 != null : "fx:id=\"cpuarchitecturetext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
         assert cpufrequencytext2 != null : "fx:id=\"cpufrequencytext2\" was not injected: check your FXML file 'FXMLProjectGui.fxml'.";
@@ -218,7 +218,7 @@ public class FXMLProjectGuiController {
         
         
         for (int i = 0; i < processes.getProcesses().length; i++) {
-        processlisttext.setText(processes.getProcesses()[i] + "        " + processes.getProcessMemUsage(os) + "\n");
+        processlisttext.setText(processes.getProcesses()[i] + "\t" + processes.getProcessMemUsage(os) + "\n");
 
         }
         

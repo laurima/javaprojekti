@@ -7,6 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorPane" minHeight="575.568359375" prefHeight="575.568359375" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cat.jamk.FXMLProjectGuiController">
@@ -59,7 +60,7 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="CPU">
+            <Tab text="CPUx">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -187,6 +188,12 @@
             </Tab>
           </tabs>
         </TabPane>
+        <Pane prefHeight="33.0" prefWidth="219.00009999999747">
+          <children>
+            <Text layoutX="701.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VPN yhteys" />
+            <Circle fill="#ff3333" layoutX="786.0" layoutY="19.0" radius="7.6552734375" stroke="BLACK" strokeType="INSIDE" />
+          </children>
+        </Pane>
       </children>
     </StackPane>
   </children>
