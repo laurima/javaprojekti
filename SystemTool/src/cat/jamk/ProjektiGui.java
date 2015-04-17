@@ -6,10 +6,12 @@
 package cat.jamk;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -17,9 +19,19 @@ import javafx.stage.Stage;
  */
 public class ProjektiGui extends Application {
     
+    
+    
     @Override
     public void start(Stage stage) throws Exception {
         
+        // Default sulkemisoperaatio, tappaa threadit ikkunan sulkiessa        
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent e) {                
+                System.exit(0);
+            }
+        });
+    
         // Käyttäjän lisääminen
         userRegister();
         
