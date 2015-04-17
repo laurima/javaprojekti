@@ -38,7 +38,7 @@
                         <Label id="languagetext" fx:id="cputext" text="cputext" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="usertext" text="usertext" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label fx:id="ostext" text="ostext" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Text fx:id="ramtext2" strokeType="OUTSIDE" strokeWidth="0.0" text="Ram" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Text fx:id="ramtext21" strokeType="OUTSIDE" strokeWidth="0.0" text="Ram" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                         <Label fx:id="ramtext" text="ramtext" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                       </children>
                       <columnConstraints>
