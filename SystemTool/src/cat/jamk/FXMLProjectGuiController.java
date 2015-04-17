@@ -6,111 +6,27 @@
 package cat.jamk;
 
 
-import java.sql.Array;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 
-/**
+/**String nimet[] = {"Matti", "Teppo","Seppo"};
  *
  * @author lauri
  */
 public class FXMLProjectGuiController {
-    
-   /* Array muuttujalista = new Array("computernametext2", "cpuarchitecturetext2", "cpufrequencytext2", "cputext", "diskfreespacetext2", "disktext", "disktext2", "homefoldertext2", "identifiertext2", "interfacenametext2", "ipaddresstext2", "macaddresstext2", "networktext2", "numberofcorestext2", "osarchitecturetext", "ostext", "ostext2", "osversiontext2", "processlisttext", "ramfreespacetext2", "ramtext2", "roamingprofiletext2", "usercountrytext2", "userdomaintext2", "userlanguagetext2", "usernametext2", "usertext");
-  
-    
-    for (int i=0; muuttujalista.getLenght() < i;i++){
-    private Label muuttujalista(i);
-}
-  */
+    String labelslist[] = {"cpufrequencytext2","macaddresstext2", "processlisttext", "cpuarchitecturetext2", "disktext2", "usernametext2", "roamingprofiletext2", "ramtext", "diskfreespacetext2", "networktext2", "homefoldertext2", "ramtext2", "usertext", "cputext", "usercountrytext2", "computernametext2", "ostext2", "osarchitecturetext2", "identifiertext2", "ostext", "userlanguagetext2", "processpiechart", "disktext", "ipaddresstext2", "numberofcorestext2", "userdomaintext2", "osversiontext2", "ramfreespacetext2", "interfacenametext2"};
+
 
   @FXML
-    private Label cpufrequencytext2;
+    private Label cpufrequencytext2, macaddresstext2, processlisttext, cpuarchitecturetext2, disktext2, usernametext2, roamingprofiletext2, ramtext, diskfreespacetext2, networktext2, homefoldertext2, ramtext2, usertext, cputext, usercountrytext2, computernametext2, ostext2,
+          osarchitecturetext2, identifiertext2, ostext, userlanguagetext2, disktext, ipaddresstext2, numberofcorestext2, userdomaintext2, osversiontext2, ramfreespacetext2, interfacenametext2;
 
-    @FXML
-    private Label macaddresstext2;
-
-    @FXML
-    private Label processlisttext;
-
-    @FXML
-    private Label cpuarchitecturetext2;
-
-    @FXML
-    private Label disktext2;
-
-    @FXML
-    private Label usernametext2;
-
-    @FXML
-    private Label roamingprofiletext2;
-
-    @FXML
-    private Label ramtext;
-
-    @FXML
-    private Label diskfreespacetext2;
 
     @FXML
     private ScrollPane processesscroll;
 
-    @FXML
-    private Label networktext2;
-
-    @FXML
-    private Label homefoldertext2;
-
-    @FXML
-    private Label ramtext2;
-
-    @FXML
-    private Label usertext;
-
-    @FXML
-    private Label cputext;
-
-    @FXML
-    private Label usercountrytext2;
-
-    @FXML
-    private Label computernametext2;
-
-    @FXML
-    private Label ostext2;
-
-    @FXML
-    private Label osarchitecturetext2;
-
-    @FXML
-    private Label identifiertext2;
-
-    @FXML
-    private Label ostext;
-
-    @FXML
-    private Label userlanguagetext2;
-
-    @FXML
-    private Label disktext;
-
-    @FXML
-    private Label ipaddresstext2;
-
-    @FXML
-    private Label numberofcorestext2;
-
-    @FXML
-    private Label userdomaintext2;
-
-    @FXML
-    private Label osversiontext2;
-
-    @FXML
-    private Label ramfreespacetext2;
-
-    @FXML
-    private Label interfacenametext2;
 
 
         
@@ -121,30 +37,9 @@ public class FXMLProjectGuiController {
     Processes processes = new Processes();
     Disk disk = new Disk();
     
-    //operating system
-    String osversion = operatingsystem.getOsVersion();
-    String os = operatingsystem.getOS();
-    String osarchitecture = operatingsystem.getOsArchitecture();
-    String username = operatingsystem.getUsername();
-    String userlanguage = operatingsystem.getUserLanguage();
-    String homefolder = operatingsystem.getHomeFolder();
-    String usercountry = operatingsystem.getUserCountry();
-    //CPU
-    String cpuarchitecture = cpu.getArchitecture();
-    String identifier = cpu.getIdentifier();
-    String numberofcores = cpu.getNumberOfCores();
+    //typecasted toString for labels
     String cpufrequency = Long.toString(cpu.getFrequency());
     String cpuload = Integer.toString(cpu.getCpuLoad());
-    //network
-    String computername = network.getComputerName();
-    String userdomain = network.getUserDomain();
-    String roamingprofile = network.getRoamingProfile();
-    String macaddress = network.getMacAddress();
-    String ipaddress = network.getIpAddress();
-    String interfacename = network.getInterfaceName();
-    //process
-    String sessionname = processes.getProcessSessionName(os);
-    String explorermemusage = processes.getProcessMemUsage(os);
     //ram
     String ramtotalspace = Float.toString(ram.getTotalRam());
     String ramusablespace = Float.toString(ram.getUsageRam());
@@ -189,33 +84,34 @@ public class FXMLProjectGuiController {
         
         
         //etusivun tietoja
-        cputext.setText(cpuarchitecture + " " + numberofcores + " " + cpufrequency);
+        cputext.setText(cpu.getArchitecture() + " " + cpu.getNumberOfCores() + " " + cpufrequency);
         ramtext2.setText(ramtotalspace);
-        ostext.setText(os + " " + osversion);
+        ostext.setText(operatingsystem.getOS() + " ver. " + operatingsystem.getOsVersion());
         disktext.setText(disktotalspace);
-        usertext.setText(username);
+        usertext.setText(operatingsystem.getUsername());
         
         //takasivun tietoja
-        ostext2.setText(os);
-        osversiontext2.setText(osversion);
-        osarchitecturetext2.setText(osarchitecture);
-        usernametext2.setText(username);
-        userlanguagetext2.setText(userlanguage);
-        usercountrytext2.setText(usercountry);
-        homefoldertext2.setText(homefolder);
+        ostext2.setText(operatingsystem.getOS());
+        osversiontext2.setText(operatingsystem.getOsVersion());
+        osarchitecturetext2.setText(operatingsystem.getOsArchitecture());
+        usernametext2.setText(operatingsystem.getUsername());
+        userlanguagetext2.setText(operatingsystem.getUserLanguage());
+        usercountrytext2.setText(operatingsystem.getUserCountry());
+        homefoldertext2.setText(operatingsystem.getHomeFolder());
         
-        cpuarchitecturetext2.setText(cpuarchitecture);
-        identifiertext2.setText(identifier);
-        numberofcorestext2.setText(numberofcores);
+        cpuarchitecturetext2.setText(cpu.getArchitecture());
+        identifiertext2.setText(cpu.getIdentifier());
+        numberofcorestext2.setText(cpu.getNumberOfCores());
         cpufrequencytext2.setText(cpufrequency);
         
-        networktext2.setText(computername);
-        computernametext2.setText(computername);
-        userdomaintext2.setText(userdomain);
-        roamingprofiletext2.setText(roamingprofile);
-        macaddresstext2.setText(macaddress);
-        ipaddresstext2.setText(ipaddress);
-        interfacenametext2.setText(interfacename);
+        networktext2.setText( network.getComputerName());
+        computernametext2.setText(network.getComputerName());
+        userdomaintext2.setText(network.getUserDomain());
+        roamingprofiletext2.setText(network.getRoamingProfile());
+        macaddresstext2.setText(network.getMacAddress());
+        ipaddresstext2.setText(network.getIpAddress());
+        interfacenametext2.setText(network.getInterfaceName());
+        
         
         ramtext2.setText(ramtotalspace);
         ramfreespacetext2.setText(ramfreespace);
@@ -226,9 +122,9 @@ public class FXMLProjectGuiController {
         
         
         
-        for (int i = 0; i < processes.getProcesses().length; i++) {
-        processlisttext.setText(processes.getProcesses()[i] + "\t" + processes.getProcessMemUsage(os) + "\n");
-
+        for (int i = 0; i < processes.countProcesses(); i++) {
+        processlisttext.setText(processes.getProcesses()[i] + "\t" + processes.getProcessMemUsage(processes.getProcesses()[i]) + "\n");
+        
         }
         
         

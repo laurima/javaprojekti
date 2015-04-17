@@ -70,12 +70,3 @@ public class OperatingSystem {
         return this.usercountry;
     }
 }
-
-/*
-System.out.println("OS: " + os.getOS());
-       System.out.println("OS Version: " + os.getOsVersion());
-       System.out.println("Username: " + os.getUsername());
-       System.out.println("User language: " + os.getUserLanguage());
-       System.out.println("User country: " + os.getUserCountry());
-       System.out.println("User homefolder: " + os.getHomeFolder());
-*/
