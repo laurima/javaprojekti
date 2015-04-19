@@ -121,11 +121,10 @@ public class FXMLProjectGuiController {
         
         
         
-        
+        /*
         for (int i = 0; i < processes.countProcesses(); i++) {
         processlisttext.setText(processes.getProcesses()[i] + "\t" + processes.getProcessMemUsage(processes.getProcesses()[i]) + "\n");
-        
-        }
+        }*/
         
         
 }

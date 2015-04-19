@@ -44,8 +44,8 @@ public class ProjektiGui extends Application {
         
         
         // Threads
-        ThreadController visual = new ThreadController("Visualization");
-        ThreadController analytics = new ThreadController("Analyzation");
+        VisualizationThread visual = new VisualizationThread("Visualization");
+        AnalyzingThread analytics = new AnalyzingThread("Analyzation");
                 
         visual.start();
         analytics.start();
