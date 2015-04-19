@@ -12,7 +12,7 @@
 <?import javafx.scene.text.*?>
 <?scenebuilder-stylesheet mainstyle.css?>
 
-<AnchorPane id="AnchorPane" minHeight="575.568359375" prefHeight="575.568359375" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cat.jamk.FXMLProjectGuiController">
+<AnchorPane id="AnchorPane" minHeight="575.568359375" prefHeight="575.568359375" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cat.jamk.FXMLProjectGuiController">
   <children>
     <ImageView fitHeight="87.75" fitWidth="117.0" layoutX="683.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
     <StackPane layoutX="0.0" layoutY="0.0" prefHeight="576.0" prefWidth="800.0">
@@ -32,7 +32,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPU" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OS" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Disk" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="C disk" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="System Specifications" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                         <Label id="homefoldertext" fx:id="disktext" text="disktext" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label id="languagetext" fx:id="cputext" text="cputext" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -69,12 +69,10 @@
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <ScrollPane fx:id="processesscroll" layoutX="425.0" layoutY="76.0" prefHeight="386.0" prefWidth="361.0">
-                      <content>
-                        <Label id="Processlisttext" fx:id="processlisttext" text="processlisttext" />
-                      </content>
-                    </ScrollPane>
                     <PieChart id="PieChart" fx:id="processpiechart" layoutX="14.0" layoutY="76.0" prefHeight="386.0" prefWidth="386.0000999999975" title="Process piechart" />
+                              <TextArea fx:id="textarea" layoutX="457.0" layoutY="32.0" prefHeight="442.0" prefWidth="319.0" />
+                  <Label id="Processlisttext" fx:id="processlisttext" layoutX="489.0" layoutY="82.0" text="processlisttext" />
+                              <TextFlow fx:id="textflowtext" layoutX="427.0" layoutY="123.0" prefHeight="200.0" prefWidth="200.0" />
                   </children>
                 </AnchorPane>
               </content>
@@ -150,7 +148,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="14" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ram" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="9" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Free space" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Disk" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="C disk" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Free space" GridPane.columnIndex="0" GridPane.rowIndex="13" />
                         <Label fx:id="networktext2" text="networktext" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label id="computernametext22" fx:id="computernametext2" text="computernametext" GridPane.columnIndex="1" GridPane.rowIndex="2" />

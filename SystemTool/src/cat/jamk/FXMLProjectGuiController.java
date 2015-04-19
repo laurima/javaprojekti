@@ -6,12 +6,14 @@
 package cat.jamk;
 
 
-import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
-/**String nimet[] = {"Matti", "Teppo","Seppo"};
+/**
  *
  * @author lauri
  */
@@ -23,9 +25,13 @@ public class FXMLProjectGuiController {
     private Label cpufrequencytext2, macaddresstext2, processlisttext, cpuarchitecturetext2, disktext2, usernametext2, roamingprofiletext2, ramtext, diskfreespacetext2, networktext2, homefoldertext2, ramtext2, usertext, cputext, usercountrytext2, computernametext2, ostext2,
           osarchitecturetext2, identifiertext2, ostext, userlanguagetext2, disktext, ipaddresstext2, numberofcorestext2, userdomaintext2, osversiontext2, ramfreespacetext2, interfacenametext2;
 
-
+  private TextArea textarea;
+  
     @FXML
     private ScrollPane processesscroll;
+    
+       @FXML
+    private TextFlow textflowtext;
 
 
 
@@ -119,20 +125,22 @@ public class FXMLProjectGuiController {
         disktext2.setText(disktotalspace);
         diskfreespacetext2.setText(diskfreespace);
         
+       String processeshelp[] = null;
+       int processlaskuri = processes.countProcesses();
+       for(int k=0;k>processlaskuri;k++){
+           processeshelp[k] = processes.getProcesses()[k];
+       }
+       
         
-        
-        
-        for (int i = 0; i < processes.countProcesses(); i++) {
-        processlisttext.setText(processes.getProcesses()[i] + "\t" + processes.getProcessMemUsage(processes.getProcesses()[i]) + "\n");
+        for (int i = 0; i > processlaskuri; i++) {
+            Text text = new Text("Hello");
+        textflowtext.getChildren().add(text);
+               
+                //setText(processeshelp[i] + "\t" + processes.getProcessMemUsage(processeshelp[i]) + "\n");
         
         }
         
         
 }
-    
 
-
-    
-    
-    
-    }
+}
