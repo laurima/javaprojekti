@@ -9,7 +9,7 @@ package cat.jamk;
  *
  * @author Laurin
  */
-public class DataUpdates {
+public class DataUpdates extends FXMLProjectGuiController {
     
     String cpufrequency, cpuload, freeram, cdiskfree;
 
@@ -23,6 +23,7 @@ public class DataUpdates {
     public String getCpuload() {
         Cpu cpu = new Cpu();
         this.cpuload = Integer.toString(cpu.getCpuLoad());
+        
         return cpuload;
     }
 

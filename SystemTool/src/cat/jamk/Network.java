@@ -65,6 +65,7 @@ public class Network {
         } catch (Exception e) {
             System.out.println(e);
         }
+        //this.macaddress = "D0-50-99-53-69-A2";
         return this.macaddress;
     }
     

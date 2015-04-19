@@ -29,6 +29,7 @@ public class MysqlHandler {
     // Connection, statement ja query
     private boolean isConnection;
     private boolean isUserInDB;
+    private boolean isSoftwareTime;
     private Connection conn;
     private Statement stmt;
     private String query;  
@@ -53,6 +54,7 @@ public class MysqlHandler {
         result = "";
         searchcolumn = "";
         isUserInDB = false;
+        isSoftwareTime = false;
 
     }
     
@@ -73,7 +75,6 @@ public class MysqlHandler {
             isConnection = true;
         } catch (Exception e) {
             isConnection = false;
-            //System.out.println(e);
         }      
     }
     
@@ -96,15 +97,15 @@ public class MysqlHandler {
     
     // Käyttäjän lisääminen tietokantaan
     public void insertNewUser(String mac, String computername, String username, String country, String language) {
-        query = "insert into tbl_users (mac, computername, user, country, lang) values ('" + mac + "', '" + computername + "', '" + username + "',' " + country + "', '" + language + "');";
-        executeQuery(query);
+        query = "insert into tbl_users (mac, computername, user, country, lang) values ('" + mac + "', '" + computername + "', '" + username + "', '" + country + "', '" + language + "');";
+        executeUpdate(query);
     }
     
     // Käyttäjän tsekkaaminen tietokannasta
     public boolean isUserInDB (String mac) {
         query = "select user from tbl_users where mac = '" + mac + "';";
         
-        if (searchDB(query, "user") != null) {
+        if (!(searchDB(query, "user").equals(""))) {
             isUserInDB = true;
         } else {
             isUserInDB = false;  
@@ -113,11 +114,11 @@ public class MysqlHandler {
     }
     
     // Kyselyn toteuttaminen
-    private void executeQuery(String query) {
+    private void executeUpdate(String query) {
         try {
             connect();
             stmt = conn.createStatement();
-            stmt.executeQuery(query);
+            stmt.executeUpdate(query);
         } catch (Exception e) {
             System.out.println(e);
         } finally {
@@ -135,7 +136,7 @@ public class MysqlHandler {
                 result = rs.getString(searchcolumn);
             }
         } catch (Exception e) {
-            result = null;
+            result = "";
             System.out.println(e);
         } finally {
             disconnect();
@@ -161,7 +162,47 @@ public class MysqlHandler {
         }
         
         this.result = searchDB(query, searchcolumn);
-
+        return this.result;
+    }
+    
+    // Ajan lisääminen tietokantaan
+    public void insertSoftwareTime(String userID, String software, int time) {
+        this.query = "insert into tbl_softwaretimes (userID, software, time) values ('" + userID + "', '" + software + "', " + time + ");";
+        executeUpdate(query);
+    }
+    
+    // Ajan päivittäminen tietokantaan
+    public void updateSoftwareTime(String userID, String software, int time) {
+        this.query = "update tbl_softwaretimes set time = time + " + time + " where (userID = '" + userID + "' and software = '" + software + "');";
+        executeUpdate(query);
+    }
+    
+    // Softwareajan olemassaolon kysely
+    public boolean isSoftwareTime(String userID, String software) {
+        this.query = "select time from tbl_softwaretimes where userID = " + userID + " and software = '" + software + "';";
+        searchcolumn = "time";
+        if (!(searchDB(this.query, searchcolumn).equals(""))) {
+            System.out.println(result);
+            isSoftwareTime = true;
+        } else {
+            isSoftwareTime = false;  
+        }
+        return isSoftwareTime;
+    }
+    
+    // Softwaren käynnissäoloajan hakeminen tietokannasta
+    public String getSoftwareTime(String userID, String software) {
+        query = "select time from tbl_softwaretimes where(userID = " + userID + " and software = '" + software + "');";
+        searchcolumn = "time";
+        this.result = searchDB(query, searchcolumn);
+        return this.result;
+    }
+    
+    // UserID tietokannasta
+    public String getUserId(String mac) {
+        query = "select userID from tbl_users where mac = '" + mac + "';";
+        searchcolumn = "userID";
+        this.result = searchDB(query, searchcolumn);
         return this.result;
     }
 }

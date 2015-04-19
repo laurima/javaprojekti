@@ -1,8 +1,9 @@
 package cat.jamk;
 
 
-import com.jezhumble.javasysmon.CpuTimes;
 import com.jezhumble.javasysmon.JavaSysMon;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  *
@@ -85,10 +86,16 @@ public class Testi {
         }
         
         System.out.println(mysqlhandler.isConnection());
-               
-        ThreadController thread1 = new ThreadController("Visualization");
-        ThreadController thread2 = new ThreadController("Analyzation");
+        
+        /*
+        VisualizationThread thread1 = new VisualizationThread("Visualization");
+        AnalyzingThread thread2 = new AnalyzingThread("Analyzation");
         thread1.start();
         thread2.start();
+        */
+        
+        System.out.println(System.currentTimeMillis());
+        
+
     }
 }
