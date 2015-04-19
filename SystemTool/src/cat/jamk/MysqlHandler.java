@@ -134,6 +134,8 @@ public class MysqlHandler {
             rs = stmt.executeQuery(query);
             if (rs.next()) {
                 result = rs.getString(searchcolumn);
+            } else {
+                result = "";
             }
         } catch (Exception e) {
             result = "";
@@ -182,7 +184,6 @@ public class MysqlHandler {
         this.query = "select time from tbl_softwaretimes where userID = " + userID + " and software = '" + software + "';";
         searchcolumn = "time";
         if (!(searchDB(this.query, searchcolumn).equals(""))) {
-            System.out.println(result);
             isSoftwareTime = true;
         } else {
             isSoftwareTime = false;  
