@@ -84,6 +84,7 @@ public class AnalyzingThread extends Thread {
                         } else if (handler.isSoftwareTime(handler.getUserId(nw.getMacAddress()), key)) {
                             handler.updateSoftwareTime(handler.getUserId(nw.getMacAddress()), key, 1);
                         }
+                        softwaretimers.get(key).startTimer();
                     }
                 }
                 
