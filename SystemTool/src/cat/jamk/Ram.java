@@ -41,9 +41,7 @@ public class Ram {
     
     // Palauttaa käytössä olevan ramin määrän gigatavuina
     public float getUsageRam() {
-        Ram ram = new Ram();
-        this.usageram = ram.getTotalRam() - ram.getFreeRam();
-        
+        this.usageram = getTotalRam() - getFreeRam();
         return this.usageram;
     }
     
