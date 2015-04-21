@@ -38,8 +38,9 @@ private String cpufrequency,  cpuload, ramtotalspace,ramusablespace, ramfreespac
     @FXML
     private ScrollPane processesscroll;
     
+    
     @FXML
-    private PieChart frontpagepie;
+    private PieChart frontpagepiechart, processpiechart;
 
 private boolean firstrun = false;
 
@@ -112,7 +113,7 @@ public void updateLiveLabels() {
     
     public void updateFrontPagePie() {
         
-   
+   //frontpagepiechart.setData(getChartData());
         piechart.addData();
             
     }

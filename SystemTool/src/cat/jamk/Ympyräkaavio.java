@@ -46,6 +46,7 @@ public class Ympyräkaavio extends Application {
                */
     }
     
+    
     public void addData(){
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
@@ -66,4 +67,10 @@ public class Ympyräkaavio extends Application {
         pieChartData.add(new PieChart.Data(result[k], Double.parseDouble(usage[k])));
         }
     }
+    
+    private ObservableList<PieChart.Data> getChartData() {
+        ObservableList<PieChart.Data> answer = FXCollections.observableArrayList();
+        answer.addAll(new PieChart.Data("java", 11));
+        
+    }s
 }
