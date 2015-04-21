@@ -18,6 +18,9 @@ import javafx.scene.Group;
  * @author User
  */
 public class Ympyräkaavio extends Application {
+
+    public Ympyräkaavio() {
+    }
     
     
 
@@ -28,34 +31,39 @@ public class Ympyräkaavio extends Application {
         stage.setTitle("Kokeilu"); //Nimeää kaavion
         stage.setWidth(500); //asettaa leveyden
         stage.setHeight(500);//asettaa korkeudenn
- Processes processes = new Processes();
+        
+        
+        
+                
+               
+       /* final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Cpu");
+
+        ((Group) scene.getRoot()).getChildren().add(chart);
+                
+        stage.setScene(scene);
+        stage.show();
+               */
+    }
+    
+    public void addData(){
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+       );
+                
+               
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Cpu");
+        Processes processes = new Processes();
         String result[] = new String[processes.countProcesses()];
         String usage[] = new String[processes.countProcesses()];
-        
-        for (int i = 0; i < processes.getProcesses().length; i++) {
-        result[i] = processes.getProcesses()[i];
-        }
+        result = processes.getProcesses();
 
         for (int i = 0; i < processes.getProcesses().length; i++) {
         usage[i] = processes.getProcessMemUsage(result[i]);
         } 
-        /*
-        ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(
-        for (int i = 0; i < processes.getProcesses().length; i++) {
-            new PieChart.Data(result[i], Double.parseDouble(usage[i]));
-                }
-               
-        final PieChart chart = new PieChart(pieChartData);
-        chart.setTitle("Cpu");
-
-        ((Group) scene.getRoot()).getChildren().add(chart);
-                */
-        stage.setScene(scene);
-        stage.show();
-    }
- 
-    public static void main(String[] args) {
-        launch(args);
+        for (int k = 0; k<processes.getProcesses().length; k++) {
+        pieChartData.add(new PieChart.Data(result[k], Double.parseDouble(usage[k])));
+        }
     }
 }

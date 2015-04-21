@@ -60,10 +60,10 @@ public void updateLiveLabels() {
          if (firstrun == true){}
          else {
               //Home page info
-        cputext.setText(cpu.getArchitecture() + " " + cpu.getNumberOfCores() + " " + cpufrequency);
-        ramtext2.setText(ramtotalspace);
+        cputext.setText(cpu.getArchitecture() + " " + cpu.getNumberOfCores() + " " + cpu.getArchitecture());
+        ramtext2.setText(Float.toString(ram.getTotalRam()));
         ostext.setText(operatingsystem.getOS() + " ver. " + operatingsystem.getOsVersion());
-        disktext.setText(disktotalspace);
+        disktext.setText(Long.toString(disk.getFreeSpace()));
         usertext.setText(operatingsystem.getUsername());
         
         //Overview page info
@@ -111,6 +111,9 @@ public void updateLiveLabels() {
     }
     
     public void updateFrontPagePie() {
+        
+   
+        piechart.addData();
             
     }
         
@@ -120,6 +123,7 @@ public void updateLiveLabels() {
     Ram ram = new Ram();
     Processes processes = new Processes();
     Disk disk = new Disk();
+    Ympyräkaavio piechart = new Ympyräkaavio();
     /*
     //typecasted toString for labels
     String cpufrequency = Long.toString(cpu.getFrequency());

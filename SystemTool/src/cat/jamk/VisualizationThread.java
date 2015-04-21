@@ -20,10 +20,13 @@ public class VisualizationThread extends Thread {
     
     @Override
     public void run() {
-        DataUpdates dataupdates = new DataUpdates(null,null,null,null);
+        DataUpdates dataupdates = new DataUpdates("","","","");
+ 
         while (true) {
             
             // TODO: Visualisoinnin päivittäminen
+            
+            dataupdates.updateFrontPagePie();
             dataupdates.getCdiskfree();
             dataupdates.getCpufrequency();
             dataupdates.getCpuload();
