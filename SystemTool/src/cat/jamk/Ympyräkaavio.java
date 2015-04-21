@@ -39,6 +39,7 @@ public class Ympyräkaavio extends Application {
         for (int i = 0; i < processes.getProcesses().length; i++) {
         usage[i] = processes.getProcessMemUsage(result[i]);
         } 
+        /*
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
         for (int i = 0; i < processes.getProcesses().length; i++) {
@@ -49,6 +50,7 @@ public class Ympyräkaavio extends Application {
         chart.setTitle("Cpu");
 
         ((Group) scene.getRoot()).getChildren().add(chart);
+                */
         stage.setScene(scene);
         stage.show();
     }

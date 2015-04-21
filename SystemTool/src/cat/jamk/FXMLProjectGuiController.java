@@ -50,19 +50,15 @@ public void updateLiveLabels() {
         Cpu cpu = new Cpu();
         Ram ram = new Ram();
         Disk disk = new Disk();
-        this.cpufrequency = Long.toString(cpu.getFrequency());
-        //this.cpuload = Integer.toString(cpu.getCpuLoad());
-        this.ramfreespace = Float.toString(ram.getFreeRam());
-        this.diskfreespace = Long.toString(disk.getUsableSpace());
-        diskfreespacetext2.setText(diskfreespace);
-        //ramfreespacetext2.setText(ramfreespace);
-        //cpufrequencytext2.setText(cpufrequency);
+        this.cpuload = Integer.toString(cpu.getCpuLoad());
+        diskfreespacetext2.setText(Long.toString(disk.getUsableSpace()));
+        ramfreespacetext2.setText(Float.toString(ram.getFreeRam()));
+        cpufrequencytext2.setText(Long.toString(cpu.getFrequency()));
     }
     
     public void updateStaticLabels() {
-        while(true) {
-         if (firstrun == true) break;
-         else 
+         if (firstrun == true){}
+         else {
               //Home page info
         cputext.setText(cpu.getArchitecture() + " " + cpu.getNumberOfCores() + " " + cpufrequency);
         ramtext2.setText(ramtotalspace);
@@ -98,7 +94,6 @@ public void updateLiveLabels() {
         
         disktext2.setText(disktotalspace);
         diskfreespacetext2.setText(diskfreespace);
-        break;
         }
     }
     
@@ -125,7 +120,7 @@ public void updateLiveLabels() {
     Ram ram = new Ram();
     Processes processes = new Processes();
     Disk disk = new Disk();
-    
+    /*
     //typecasted toString for labels
     String cpufrequency = Long.toString(cpu.getFrequency());
     String cpuload = Integer.toString(cpu.getCpuLoad());
@@ -137,7 +132,7 @@ public void updateLiveLabels() {
     String disktotalspace = Long.toString(disk.getTotalSpace());
     String diskusablespace = Long.toString(disk.getUsableSpace());
     String diskfreespace = Long.toString(disk.getUsableSpace());
-
+*/
 
     
     @FXML
