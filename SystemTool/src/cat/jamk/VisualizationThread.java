@@ -28,6 +28,9 @@ public class VisualizationThread extends Thread {
             dataupdates.getCpufrequency();
             dataupdates.getCpuload();
             dataupdates.getFreeram();
+            dataupdates.updateLiveLabels();
+            dataupdates.updateProcessesList();
+            dataupdates.updateStaticLabels();
             
             System.out.println("Thread: " + name); 
             try {

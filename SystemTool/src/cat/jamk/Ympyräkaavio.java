@@ -19,21 +19,34 @@ import javafx.scene.Group;
  */
 public class Ympyräkaavio extends Application {
     
+    
+
+
+    
     @Override public void start(Stage stage) {
         Scene scene = new Scene(new Group());
         stage.setTitle("Kokeilu"); //Nimeää kaavion
         stage.setWidth(500); //asettaa leveyden
         stage.setHeight(500);//asettaa korkeudenn
- 
+ Processes processes = new Processes();
+        String result[] = new String[processes.countProcesses()];
+        String usage[] = new String[processes.countProcesses()];
+        
+        for (int i = 0; i < processes.getProcesses().length; i++) {
+        result[i] = processes.getProcesses()[i];
+        }
+
+        for (int i = 0; i < processes.getProcesses().length; i++) {
+        usage[i] = processes.getProcessMemUsage(result[i]);
+        } 
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                new PieChart.Data("1", 13), //Nimeää lohkon ja asettaa määrän.
-                new PieChart.Data("2", 25),
-                new PieChart.Data("3", 10),
-                new PieChart.Data("4", 22),
-                new PieChart.Data("5", 30));
+        for (int i = 0; i < processes.getProcesses().length; i++) {
+            new PieChart.Data(result[i], Double.parseDouble(usage[i]));
+                }
+               
         final PieChart chart = new PieChart(pieChartData);
-        chart.setTitle("Kokeilu");
+        chart.setTitle("Cpu");
 
         ((Group) scene.getRoot()).getChildren().add(chart);
         stage.setScene(scene);

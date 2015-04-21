@@ -6,19 +6,27 @@
 package cat.jamk;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
 /**
  *
  * @author lauri
  */
 public class FXMLProjectGuiController {
-    String labelslist[] = {"cpufrequencytext2","macaddresstext2", "processlisttext", "cpuarchitecturetext2", "disktext2", "usernametext2", "roamingprofiletext2", "ramtext", "diskfreespacetext2", "networktext2", "homefoldertext2", "ramtext2", "usertext", "cputext", "usercountrytext2", "computernametext2", "ostext2", "osarchitecturetext2", "identifiertext2", "ostext", "userlanguagetext2", "processpiechart", "disktext", "ipaddresstext2", "numberofcorestext2", "userdomaintext2", "osversiontext2", "ramfreespacetext2", "interfacenametext2"};
+    private String labelslist[] = {"cpufrequencytext2","macaddresstext2", "processlisttext", "cpuarchitecturetext2", "disktext2", "usernametext2", "roamingprofiletext2", "ramtext", "diskfreespacetext3", "networktext2", "homefoldertext2", "ramtext2", "usertext", "cputext", "usercountrytext2", "computernametext2", "ostext2", "osarchitecturetext2", "identifiertext2", "ostext", "userlanguagetext2", "processpiechart", "disktext", "ipaddresstext2", "numberofcorestext2", "userdomaintext2", "osversiontext2", "ramfreespacetext2", "interfacenametext2"};
+    
+    
+private String cpufrequency,  cpuload, ramtotalspace,ramusablespace, ramfreespace, disktotalspace,diskusablespace, diskfreespace, macaddress, cpuarrchitecture, username, roamingprofile, network2, homefolder,
+            user, usercountry, computername, os, userlanguage, ipaddress, numberofcores, userdomain, osversion,interfacename;
+
+
+
 
 
   @FXML
@@ -30,11 +38,86 @@ public class FXMLProjectGuiController {
     @FXML
     private ScrollPane processesscroll;
     
-       @FXML
-    private TextFlow textflowtext;
+    @FXML
+    private PieChart frontpagepie;
+
+private boolean firstrun = false;
 
 
 
+    
+public void updateLiveLabels() {
+        Cpu cpu = new Cpu();
+        Ram ram = new Ram();
+        Disk disk = new Disk();
+        this.cpufrequency = Long.toString(cpu.getFrequency());
+        //this.cpuload = Integer.toString(cpu.getCpuLoad());
+        this.ramfreespace = Float.toString(ram.getFreeRam());
+        this.diskfreespace = Long.toString(disk.getUsableSpace());
+        diskfreespacetext2.setText(diskfreespace);
+        //ramfreespacetext2.setText(ramfreespace);
+        //cpufrequencytext2.setText(cpufrequency);
+    }
+    
+    public void updateStaticLabels() {
+        while(true) {
+         if (firstrun == true) break;
+         else 
+              //Home page info
+        cputext.setText(cpu.getArchitecture() + " " + cpu.getNumberOfCores() + " " + cpufrequency);
+        ramtext2.setText(ramtotalspace);
+        ostext.setText(operatingsystem.getOS() + " ver. " + operatingsystem.getOsVersion());
+        disktext.setText(disktotalspace);
+        usertext.setText(operatingsystem.getUsername());
+        
+        //Overview page info
+        ostext2.setText(operatingsystem.getOS());
+        osversiontext2.setText(operatingsystem.getOsVersion());
+        osarchitecturetext2.setText(operatingsystem.getOsArchitecture());
+        usernametext2.setText(operatingsystem.getUsername());
+        userlanguagetext2.setText(operatingsystem.getUserLanguage());
+        usercountrytext2.setText(operatingsystem.getUserCountry());
+        homefoldertext2.setText(operatingsystem.getHomeFolder());
+        
+        cpuarchitecturetext2.setText(cpu.getArchitecture());
+        identifiertext2.setText(cpu.getIdentifier());
+        numberofcorestext2.setText(cpu.getNumberOfCores());
+        cpufrequencytext2.setText(cpufrequency);
+        
+        networktext2.setText( network.getComputerName());
+        computernametext2.setText(network.getComputerName());
+        userdomaintext2.setText(network.getUserDomain());
+        roamingprofiletext2.setText(network.getRoamingProfile());
+        macaddresstext2.setText(network.getMacAddress());
+        ipaddresstext2.setText(network.getIpAddress());
+        interfacenametext2.setText(network.getInterfaceName());
+        
+        
+        ramtext2.setText(ramtotalspace);
+        ramfreespacetext2.setText(ramfreespace);
+        
+        disktext2.setText(disktotalspace);
+        diskfreespacetext2.setText(diskfreespace);
+        break;
+        }
+    }
+    
+    public void updateProcessesList() {
+        Processes processes = new Processes();
+        String result[] = new String[processes.countProcesses()];
+        
+        for (int i = 0; i < processes.getProcesses().length; i++) {
+        result[i] = processes.getProcesses()[i];
+        }
+        result = processes.getProcesses();
+        for (int i = 0; i < processes.getProcesses().length; i++) {
+        textarea.setText(result[i] + "\t" + processes.getProcessMemUsage(result[i]));
+        }
+    }
+    
+    public void updateFrontPagePie() {
+            
+    }
         
     OperatingSystem operatingsystem = new OperatingSystem();
     Cpu cpu = new Cpu();
@@ -54,6 +137,7 @@ public class FXMLProjectGuiController {
     String disktotalspace = Long.toString(disk.getTotalSpace());
     String diskusablespace = Long.toString(disk.getUsableSpace());
     String diskfreespace = Long.toString(disk.getUsableSpace());
+
 
     
     @FXML
@@ -91,7 +175,7 @@ public class FXMLProjectGuiController {
         
         //etusivun tietoja
         cputext.setText(cpu.getArchitecture() + " " + cpu.getNumberOfCores() + " " + cpufrequency);
-        ramtext2.setText(ramtotalspace);
+        ramtext.setText(ramtotalspace);
         ostext.setText(operatingsystem.getOS() + " ver. " + operatingsystem.getOsVersion());
         disktext.setText(disktotalspace);
         usertext.setText(operatingsystem.getUsername());
@@ -131,23 +215,7 @@ public class FXMLProjectGuiController {
            processeshelp[k] = processes.getProcesses()[k];
        }
        
-        
-        for (int i = 0; i > processlaskuri; i++) {
-            Text text = new Text("Hello");
-        textflowtext.getChildren().add(text);
-               
-                //setText(processeshelp[i] + "\t" + processes.getProcessMemUsage(processeshelp[i]) + "\n");
-        
-        }
 
-        
-        /*
-        for (int i = 0; i < processes.countProcesses(); i++) {
-        processlisttext.setText(processes.getProcesses()[i] + "\t" + processes.getProcessMemUsage(processes.getProcesses()[i]) + "\n");
-        }*/
-
-        
-        
 }
 
 }
