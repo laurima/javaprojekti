@@ -72,5 +72,5 @@ public class Ympyräkaavio extends Application {
         ObservableList<PieChart.Data> answer = FXCollections.observableArrayList();
         answer.addAll(new PieChart.Data("java", 11));
         
-    }s
+    }
 }

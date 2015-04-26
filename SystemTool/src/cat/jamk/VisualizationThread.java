@@ -20,20 +20,14 @@ public class VisualizationThread extends Thread {
     
     @Override
     public void run() {
-        DataUpdates dataupdates = new DataUpdates("","","","");
+        Layers layer = new Layers();
  
         while (true) {
             
             // TODO: Visualisoinnin päivittäminen
             
-            dataupdates.updateFrontPagePie();
-            dataupdates.getCdiskfree();
-            dataupdates.getCpufrequency();
-            dataupdates.getCpuload();
-            dataupdates.getFreeram();
-            dataupdates.updateLiveLabels();
-            dataupdates.updateProcessesList();
-            dataupdates.updateStaticLabels();
+            layer.updateLiveLabels();
+
             
             System.out.println("Thread: " + name); 
             try {
