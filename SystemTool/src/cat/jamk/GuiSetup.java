@@ -51,7 +51,9 @@ public class GuiSetup extends Application {
 
         primaryStage.setTitle("Cerberus - System Tool");
         Group root = new Group();
-        Scene scene = new Scene(root, 640, 480, Color.LIGHTGRAY);
+        Scene scene = new Scene(root, 640, 480);
+        scene.getStylesheets().add
+        (GuiSetup.class.getResource("mainstyle.css").toExternalForm());
         
         // Default sulkemisoperaatio, tappaa threadit ikkunan sulkiessa        
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -128,7 +130,7 @@ public class GuiSetup extends Application {
          piecharthbox.getChildren().addAll(chart);   
             
             Tab cpupage = new Tab();
-            cpupage.setText("Cpu");
+            cpupage.setText("Processes");
             GridPane gridpanecpu = new GridPane();
             gridpanecpu.setAlignment(Pos.CENTER);
             cpupage.setContent(gridpanecpu);
@@ -151,10 +153,15 @@ public class GuiSetup extends Application {
             Tab stats = new Tab();
             stats.setText("Stats");
             GridPane gridpanestats = new GridPane();
+            GridPane gridpanestatsleft = new GridPane();
+            GridPane gridpanestatsright = new GridPane();
             gridpanestats.setAlignment(Pos.CENTER);
   
             //gridpanestats.setAlignment(Pos.CENTER);
             stats.setContent(gridpanestats);
+            gridpanestats.add(gridpanestatsleft, 0, 1);
+            gridpanestats.add(gridpanestatsright, 3, 1);
+            
             
         
             
@@ -217,72 +224,72 @@ public class GuiSetup extends Application {
             
             Label diskTotalSpaceLabel = new Label(disk.getTotalSpace() + " Gt");
             Label diskFreeSpaceLabel = new Label(disk.getFreeSpace() + " Gt");
+
+            gridpanestatsright.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,
+                                                             null,new BorderWidths(1))));
+            gridpanestatsleft.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,
+                                                             null,new BorderWidths(1))));
             
+            gridpanestatsleft.add(osText,0,2);
+            gridpanestatsleft.add(osOperatingSystem,0,3);
+            gridpanestatsleft.add(osVersion,0,4);
+            gridpanestatsleft.add(osArchitecture,0,5);
+            gridpanestatsleft.add(osUserName,0,6);
+            gridpanestatsleft.add(osUserLanguage,0,7);
+            gridpanestatsleft.add(osUserCountry,0,8);
+            gridpanestatsleft.add(osHomeFolder,0,9);
             
-            VBox statsbox1 = new VBox();
-            statsbox1.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.DASHED,
-                                                             null,new BorderWidths(3))));
-            gridpanestats.add(statsbox1,0,1);
-            gridpanestats.add(osText,0,2);
-            gridpanestats.add(osOperatingSystem,0,3);
-            gridpanestats.add(osVersion,0,4);
-            gridpanestats.add(osArchitecture,0,5);
-            gridpanestats.add(osUserName,0,6);
-            gridpanestats.add(osUserLanguage,0,7);
-            gridpanestats.add(osUserCountry,0,8);
-            gridpanestats.add(osHomeFolder,0,9);
-            
-            gridpanestats.add(osOperatingSystemLabel,1,3);
-            gridpanestats.add(osVersionLabel,1,4);
-            gridpanestats.add(osArchitectureLabel,1,5);
-            gridpanestats.add(osUserNameLabel,1,6);
-            gridpanestats.add(osUserLanguageLabel,1,7);
-            gridpanestats.add(osUserCountryLabel,1,8);
-            gridpanestats.add(osHomeFolderLabel,1,9);
+            gridpanestatsleft.add(osOperatingSystemLabel,1,3);
+            gridpanestatsleft.add(osVersionLabel,1,4);
+            gridpanestatsleft.add(osArchitectureLabel,1,5);
+            gridpanestatsleft.add(osUserNameLabel,1,6);
+            gridpanestatsleft.add(osUserLanguageLabel,1,7);
+            gridpanestatsleft.add(osUserCountryLabel,1,8);
+            gridpanestatsleft.add(osHomeFolderLabel,1,9);
     
-            gridpanestats.add(cpuText,0,11);
-            gridpanestats.add(cpuArchitecture,0,12);
-            gridpanestats.add(cpuIdentifier,0,13);
-            gridpanestats.add(cpuNumberOfCores,0,14);
-            gridpanestats.add(cpuFrequency,0,15);
+            gridpanestatsleft.add(cpuText,0,11);
+            gridpanestatsleft.add(cpuArchitecture,0,12);
+            gridpanestatsleft.add(cpuIdentifier,0,13);
+            gridpanestatsleft.add(cpuNumberOfCores,0,14);
+            gridpanestatsleft.add(cpuFrequency,0,15);
             
-            gridpanestats.add(cpuArchitectureLabel,1,12);
-            gridpanestats.add(cpuIdentifierLabel,1,13);
-            gridpanestats.add(cpuNumberOfCoresLabel,1,14);
-            gridpanestats.add(cpuFrequencyLabel,1,15);
-            
-            
-            gridpanestats.add(networkText,3,2);
-            gridpanestats.add(networkComputerName,3,3);
-            gridpanestats.add(networkUserDomain,3,4);
-            gridpanestats.add(networkRoamingProfile,3,5);
-            gridpanestats.add(networkMacAddress,3,6);
-            gridpanestats.add(networkIpAddress,3,7);
-            gridpanestats.add(networkInterfaceName,3,8);
-            
-            gridpanestats.add(networkComputerNameLabel,4,3);
-            gridpanestats.add(networkUserDomainLabel,4,4);
-            gridpanestats.add(networkRoamingProfileLabel,4,5);
-            gridpanestats.add(networkMacAddressLabel,4,6);
-            gridpanestats.add(networkIpAddressLabel,4,7);
-            gridpanestats.add(networkInterfaceNameLabel,4,8);
+            gridpanestatsleft.add(cpuArchitectureLabel,1,12);
+            gridpanestatsleft.add(cpuIdentifierLabel,1,13);
+            gridpanestatsleft.add(cpuNumberOfCoresLabel,1,14);
+            gridpanestatsleft.add(cpuFrequencyLabel,1,15);
             
             
-            gridpanestats.add(ramText,3,11);
-            gridpanestats.add(ramTotalSpace,3,12);
-            gridpanestats.add(ramFreeSpace,3,13);
+            gridpanestatsright.add(networkText,3,2);
+            gridpanestatsright.add(networkComputerName,3,3);
+            gridpanestatsright.add(networkUserDomain,3,4);
+            gridpanestatsright.add(networkRoamingProfile,3,5);
+            gridpanestatsright.add(networkMacAddress,3,6);
+            gridpanestatsright.add(networkIpAddress,3,7);
+            gridpanestatsright.add(networkInterfaceName,3,8);
             
-            gridpanestats.add(ramTotalSpaceLabel,4,12);
-            gridpanestats.add(ramFreeSpaceLabel,4,13);
+            gridpanestatsright.add(networkComputerNameLabel,4,3);
+            gridpanestatsright.add(networkUserDomainLabel,4,4);
+            gridpanestatsright.add(networkRoamingProfileLabel,4,5);
+            gridpanestatsright.add(networkMacAddressLabel,4,6);
+            gridpanestatsright.add(networkIpAddressLabel,4,7);
+            gridpanestatsright.add(networkInterfaceNameLabel,4,8);
+            
+            
+            gridpanestatsright.add(ramText,3,11);
+            gridpanestatsright.add(ramTotalSpace,3,12);
+            gridpanestatsright.add(ramFreeSpace,3,13);
+            
+            gridpanestatsright.add(ramTotalSpaceLabel,4,12);
+            gridpanestatsright.add(ramFreeSpaceLabel,4,13);
             
             
             
-            gridpanestats.add(diskText,3,14);
-            gridpanestats.add(diskTotalSpace,3,15);
-            gridpanestats.add(diskFreeSpace,3,16);
+            gridpanestatsright.add(diskText,3,14);
+            gridpanestatsright.add(diskTotalSpace,3,15);
+            gridpanestatsright.add(diskFreeSpace,3,16);
             
-            gridpanestats.add(diskTotalSpaceLabel,4,15);
-            gridpanestats.add(diskFreeSpaceLabel,4,16);
+            gridpanestatsright.add(diskTotalSpaceLabel,4,15);
+            gridpanestatsright.add(diskFreeSpaceLabel,4,16);
             
             
             tabPane.getTabs().add(overview);
